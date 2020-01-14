@@ -6,11 +6,16 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Group Project 01</title>
 
+    <!-- MapBox GL JS Library -->
     <script src="https://api.mapbox.com/mapbox-gl-js/v1.6.1/mapbox-gl.js"></script>
+
+    <!-- MapBox GL Styling -->
     <link
       href="https://api.mapbox.com/mapbox-gl-js/v1.6.1/mapbox-gl.css"
       rel="stylesheet"
     />
+
+    <!-- MapBox GL Directions Plugin -->
     <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.0.2/mapbox-gl-directions.js"></script>
     <link
       rel="stylesheet"
@@ -45,22 +50,6 @@
       integrity="sha256-mRYlCu5EG+ouD07WxLF8v4ZAZYCA6WrmdIXyn1Bv9Vk= sha384-KzKofw4qqetd3kvuQ5AdapWPqV1ZI+CnfyfEwZQgPk8poOLWaabfgJOfmW7uI+AV sha512-0gHfaMkY+Do568TgjJC2iMAV0dQlY4NqbeZ4pr9lVUTXQzKu8qceyd6wg/3Uql9qA2+3X5NHv3IMb05wb387rA=="
       crossorigin="anonymous"
     ></script>
-    <script>
-      mapboxgl.accessToken =
-        "pk.eyJ1IjoibWFnaWFtYTkiLCJhIjoiY2s1ZTQ5eTd0MDBmMjNsbm00dTQ4cWcydCJ9.Fsow7km2bw_bHw0r7jtPlw";
-      var map = new mapboxgl.Map({
-        container: "map", // container id
-        style: "mapbox://styles/mapbox/streets-v11", // stylesheet location
-        center: [-77.1, 38.9], // starting position [lng, lat]
-        zoom: 10 // starting zoom
-      });
-      map.addControl(
-        new MapboxDirections({
-          accessToken: mapboxgl.accessToken
-        }),
-        "top-left"
-      );
-    </script>
 
     <!-- Custom JavaScript -->
     <script src="assets/scripts/script.js"></script>

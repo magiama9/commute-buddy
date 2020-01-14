@@ -21,7 +21,7 @@ This is an application to display the nearest gas station and allow the user to 
 ### LIBRARIES AND FRAMEWORKS 
 * JQuery --- Used to traverse/select/modify the DOM
 * MapBox API --- Used to generate maps and directions
-* FuelEconomy.gov API --- Used to get current nationwide gas prices
+* Gas Prices API --- Used to get current nationwide gas prices
 
 ## TO-DO
 * Wireframe front-end

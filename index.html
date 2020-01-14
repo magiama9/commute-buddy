@@ -1,0 +1,36 @@
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript">
+
+var state = "Washington";
+
+$.ajax( {
+  url: "https://api.collectapi.com/gasPrice/stateUsaPrice?state=" + state,
+  headers: {
+    "Authorization": "apikey 55SVU23jWoKSVlomDEpsDd:1QM5eehk7qfVyvGcT43zVo",
+  method: "GET",
+  data: {    
+    state: "Washington",
+  }
+}
+}).then(function(response) {
+  var mpg = 25;
+  var totalDistance = 200;
+  console.log(response);
+  console.log(totalDistance / mpg * response.result.state.gasoline);
+})
+
+
+
+
+
+
+</script>
+
+
+
+
+
+
+
+

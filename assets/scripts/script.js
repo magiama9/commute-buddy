@@ -224,9 +224,37 @@ $(document).ready(function() {
     }
   }
 
+  
+  // CALORIES BURNED WALKING
+  function walkingCal() {
+    if($("#female").checked) {
+      // WOMEN
+      var womenCal = (170 * 2 / 3.5) * walkingDistance;
+    };
+    if($("#male").checked) {
+      // MEN
+      var menCal = (200 * 2 / 3.5) * walkingDistance;
+    } 
+  }
+
+  // CALORIES BURNED CYCLING
+  function cyclingCal() {
+    if($("#female").checked) {
+      // WOMEN
+      var womenCal = (170 * 1.9 / 12) * cyclingDistance;
+    };
+    if($("#male").checked) {
+      // MEN
+      var menCal = (200 * 1.9 / 12) * cyclingDistance;
+    } 
+  }
+
+
+
   function fuelCalc() {
     var totalDistance = parseInt(routeDistanceMiles);
     routeCost = ((totalDistance / mpg) * gasPrice).toFixed(2);
     console.log(routeCost);
   }
+
 });

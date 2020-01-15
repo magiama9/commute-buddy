@@ -1,6 +1,30 @@
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script type="text/javascript">
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Group Project 01</title>
+  </head>
+  <body>
+    <!-- JQuery JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <!-- Moment JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+
+    <!-- Compressed Foundation JavaScript -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/foundation-sites@6.4.3/dist/js/foundation.min.js"
+      integrity="sha256-mRYlCu5EG+ouD07WxLF8v4ZAZYCA6WrmdIXyn1Bv9Vk= sha384-KzKofw4qqetd3kvuQ5AdapWPqV1ZI+CnfyfEwZQgPk8poOLWaabfgJOfmW7uI+AV sha512-0gHfaMkY+Do568TgjJC2iMAV0dQlY4NqbeZ4pr9lVUTXQzKu8qceyd6wg/3Uql9qA2+3X5NHv3IMb05wb387rA=="
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- Custom JavaScript -->
+    <script src="assets/scripts/script.js"></script>
+    
+    <script type="text/javascript">
 
 var state = "Washington";
 
@@ -19,18 +43,5 @@ $.ajax( {
   console.log(response);
   console.log(totalDistance / mpg * response.result.state.gasoline);
 })
-
-
-
-
-
-
-</script>
-
-
-
-
-
-
-
-
+  </body>
+</html>

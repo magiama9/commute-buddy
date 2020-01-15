@@ -1,0 +1,13 @@
+.form-group {
+  padding-left: 20px;
+  padding-top: 40px;
+}
+
+h3 {
+  padding-top: 30px;
+}
+
+.tripInfo li {
+  display: inline-block;
+  justify-content: space-around;
+}

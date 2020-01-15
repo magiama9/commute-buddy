@@ -13,16 +13,15 @@ $(document).ready(function() {
   let routeDistance;
   let routeDistanceMiles;
 
-
-// CREATES A NEW MAPBOX MAP OBJECT AND ADDS IT TO THE GIVEN CONTAINER
+  // CREATES A NEW MAPBOX MAP OBJECT AND ADDS IT TO THE GIVEN CONTAINER
   let map = new mapboxgl.Map({
     container: "map", // container id
     style: "mapbox://styles/mapbox/streets-v11", // stylesheet location
     center: [-77.1, 38.9], // starting position [lng, lat]
-    zoom: 10 // starting zoom
+    zoom: 13 // starting zoom
   });
 
-// HANDLES EVENTS FOR WHEN THE MAP FINISHES LOADING AND ADDS CONTROLS TO THE MAP USING MAPBOX DIRECTIONS GL PLUGIN
+  // HANDLES EVENTS FOR WHEN THE MAP FINISHES LOADING AND ADDS CONTROLS TO THE MAP USING MAPBOX DIRECTIONS GL PLUGIN
   map.on("load", function() {
     map.addControl(directions, "top-left");
 
@@ -44,7 +43,6 @@ $(document).ready(function() {
       getDistance();
     });
   });
-
 
   // CALLS MAPBOX DIRECTIONS API AND FETCHES THE ROUTE OBJECT OF THE USER INPUTTED ROUTE
   function getDistance() {
@@ -76,10 +74,9 @@ $(document).ready(function() {
     });
   }
 
-
   // CONVERTS A VALUE IN METERS TO THE EQUIVALENT VALUE IN MILES WITH TWO DECIMAL POINTS
   // N.B. THE VALUE RETURNED IS A __STRING__
   function metersToMiles(num) {
-    routeDistanceMiles = (num/1609.34).toFixed(2);
+    routeDistanceMiles = (num / 1609.34).toFixed(2);
   }
 });

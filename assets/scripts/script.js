@@ -74,7 +74,23 @@ $(document).ready(function() {
       }
     });
   }
+  var state = "Washington";
 
+  $.ajax({
+    url: "https://api.collectapi.com/gasPrice/stateUsaPrice?state=" + state,
+    headers: {
+      Authorization: "apikey 55SVU23jWoKSVlomDEpsDd:1QM5eehk7qfVyvGcT43zVo",
+      method: "GET",
+      data: {
+        state: "Washington"
+      }
+    }
+  }).then(function(response) {
+    var mpg = 25;
+    var totalDistance = 200;
+    console.log(response);
+    console.log((totalDistance / mpg) * response.result.state.gasoline);
+  });
   // CONVERTS A VALUE IN METERS TO THE EQUIVALENT VALUE IN MILES WITH TWO DECIMAL POINTS
   // N.B. THE VALUE RETURNED IS A __STRING__
   function metersToMiles(num) {

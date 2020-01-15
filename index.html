@@ -6,6 +6,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Group Project 01</title>
+
+
+    <!-- MapBox GL Directions Plugin -->
+    <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.0.2/mapbox-gl-directions.js"></script>
+    <!-- MapBox GL JS Library -->
+    <script src="https://api.mapbox.com/mapbox-gl-js/v1.6.1/mapbox-gl.js"></script>
+
+    <!-- MapBox GL Styling -->
+    <link
+      href="https://api.mapbox.com/mapbox-gl-js/v1.6.1/mapbox-gl.css"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.0.2/mapbox-gl-directions.css"
+      type="text/css"
+    />
+    <link rel="stylesheet" href="assets/styles/styles.css" />
+    
+  </head>
+  <body>
+    <div id= "surround">
+    <div id="map"></div>
+    </div>
+    <button id="testButton">Hello</button>
     
     <!-- Bootstrap and Stylesheet link-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
@@ -49,6 +75,7 @@
     
    
   
+
     <!-- JQuery JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
@@ -64,7 +91,8 @@
 
     <!-- Custom JavaScript -->
     <script src="assets/scripts/script.js"></script>
-    
+
+
     <script type="text/javascript">
 
 var state = "Washington";
@@ -84,5 +112,6 @@ $.ajax( {
   console.log(response);
   console.log(totalDistance / mpg * response.result.state.gasoline);
 })
+
   </body>
 </html>

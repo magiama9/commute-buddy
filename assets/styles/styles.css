@@ -1,3 +1,17 @@
+
+body {
+  margin: 0;
+  padding: 0;
+  background: #004d40;
+}
+#map {
+  position: absolute;
+  top: 6.25%;
+  left: 12.5%;
+  width: 75%;
+  height: 75%;
+}
+
 .form-group {
   padding-left: 20px;
   padding-top: 40px;

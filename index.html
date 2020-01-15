@@ -84,12 +84,17 @@
         </div>
       </div>
     </div>
+
    
-    <!-- <button id="tes?tButton">Hello</button> -->
+    <button id="testButton">Hello</button>
+    <input id="mpgInput" type="text" placeholder="Enter your mpg">
+    <input id="commuterOptions" type="text" placeholder = "How many times a week do you take this route">
+    <input id="male" type="radio">Male</input>
+    <input id="female" type="radio">Female</input>
+
     
     <!-- Bootstrap and Stylesheet link-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/styles/styles.css">
 
   </head>
   <body>
@@ -115,25 +120,7 @@
     <script src="assets/scripts/script.js"></script>
 
 
-    <script type="text/javascript">
 
-var state = "Washington";
 
-$.ajax( {
-  url: "https://api.collectapi.com/gasPrice/stateUsaPrice?state=" + state,
-  headers: {
-    "Authorization": "apikey 55SVU23jWoKSVlomDEpsDd:1QM5eehk7qfVyvGcT43zVo",
-  method: "GET",
-  data: {    
-    state: "Washington",
-  }
-}
-}).then(function(response) {
-  var mpg = 25;
-  var totalDistance = 200;
-  console.log(response);
-  console.log(totalDistance / mpg * response.result.state.gasoline);
-})
-  </script>
   </body>
 </html>

@@ -27,20 +27,20 @@ As commuters in a large city, we have options for method of transport; often the
 * MapBox GL --- Used for rendering the map utilizing openstreetmap data and WebGL
     * MapBox GL Directions Plugin --- Used for translating MapBox API data to user readable navigation information. Also handles user input and geolocator functionality(e.g. Turning 1600 Pennsylvania Ave into a set of coordinates readable by the MapBox API)
 * MapBox API --- Used to generate maps, directions, and distance.
-* Gas Prices API --- Used to get current nationwide gas prices
+* Gas Prices API via Current API--- Used to get current nationwide gas prices
 
 ## MVP TO-DO
-* Wireframe front-end
+* ~~Wireframe front-end~~
 * ~~Make MapBox Calls~~
 * ~~Make Gas Price Calls~~
 * ~~Display map~~
-* Take User Input
+* ~~Take User Input~~
   * ~~Origin~~
   * ~~Destination~~
-  * Car MPG
-  * Fuel Type
+  * ~~Car MPG~~
+  * ~~How often is the route traveled?~~
 * ~~Display navigation/directions~~
-* Calculate
+* ~~Calculate~~
   * ~~Fuel Used~~
   * ~~Price of Fuel Used~~
 * Display information to user
@@ -49,11 +49,14 @@ As commuters in a large city, we have options for method of transport; often the
   * Gas Cost
 
 
-## WISHLIST
+## WISHLIST TO-DO
 
 * Calculate gas prices dynamically based on the time spent in each state for which gas price data is available
 * Find the nearest gas station
 * Find the price of gas at the nearest gas station
 * Let the user select their car make and model to automatically find the MPG information
-* Calculate commute costs daily, weekly, monthly, and yearly for driving
-    * Calculate comparable commute costs using DC Metro/DC MetroBus
+* ~~Calculate commute costs daily, weekly, monthly, and yearly for driving~~
+  * Calculate comparable commute costs using DC Metro/DC MetroBus
+* ~~Calculate calories burned for walking and cycling~~
+  * Calculate pounds burned/weight lost over period of time?
+* Calculate total running cost over commuting period (using IRS cost/mile?)

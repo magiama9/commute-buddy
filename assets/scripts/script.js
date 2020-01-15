@@ -1,3 +1,18 @@
+
+/* GLOBAL VARIABLES */
+/******************** */
+
+let routeCost;
+let originLat;
+let originLon;
+let destinationLat;
+let destinationLon;
+let routeDistance;
+let routeDistanceMiles;
+let mpg = 25;
+
+/********************* */
+
 $(document).ready(function() {
   let directionsURL =
     "https://api.mapbox.com/directions/v5/mapbox/driving-traffic/";
@@ -6,12 +21,6 @@ $(document).ready(function() {
   let directions = new MapboxDirections({
     accessToken: mapboxgl.accessToken
   });
-  let originLat;
-  let originLon;
-  let destinationLat;
-  let destinationLon;
-  let routeDistance;
-  let routeDistanceMiles;
 
   // CREATES A NEW MAPBOX MAP OBJECT AND ADDS IT TO THE GIVEN CONTAINER
   let map = new mapboxgl.Map({
@@ -68,29 +77,32 @@ $(document).ready(function() {
         routeDistance = response.routes[0].distance;
         metersToMiles(routeDistance);
         console.log(routeDistanceMiles);
+        fuelCalc();
       },
       error: function() {
         console.log("ERROR");
       }
     });
   }
-  var state = "Washington";
 
-  $.ajax({
-    url: "https://api.collectapi.com/gasPrice/stateUsaPrice?state=" + state,
-    headers: {
-      Authorization: "apikey 55SVU23jWoKSVlomDEpsDd:1QM5eehk7qfVyvGcT43zVo",
-      method: "GET",
-      data: {
-        state: "Washington"
+  function fuelCalc() {
+    $.ajax({
+      url: "https://api.collectapi.com/gasPrice/stateUsaPrice?state=",
+      headers: {
+        Authorization: "apikey 55SVU23jWoKSVlomDEpsDd:1QM5eehk7qfVyvGcT43zVo",
+        method: "GET",
+        data: {}
       }
-    }
-  }).then(function(response) {
-    var mpg = 25;
-    var totalDistance = 200;
-    console.log(response);
-    console.log((totalDistance / mpg) * response.result.state.gasoline);
-  });
+    }).then(function(response) {
+      
+      var totalDistance = parseInt(routeDistanceMiles);
+      console.log(response);
+      routeCost = (
+        (totalDistance / mpg) *
+        response.result.state.gasoline
+      ).toFixed(2);
+    });
+  }
   // CONVERTS A VALUE IN METERS TO THE EQUIVALENT VALUE IN MILES WITH TWO DECIMAL POINTS
   // N.B. THE VALUE RETURNED IS A __STRING__
   function metersToMiles(num) {

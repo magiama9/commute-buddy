@@ -32,7 +32,7 @@ As commuters in a large city, we have options for method of transport; often the
 ## MVP TO-DO
 * Wireframe front-end
 * ~~Make MapBox Calls~~
-* Make Gas Price Calls
+* ~~Make Gas Price Calls~~
 * ~~Display map~~
 * Take User Input
   * ~~Origin~~
@@ -41,8 +41,8 @@ As commuters in a large city, we have options for method of transport; often the
   * Fuel Type
 * ~~Display navigation/directions~~
 * Calculate
-  * Fuel Used
-  * Price of Fuel Used
+  * ~~Fuel Used~~
+  * ~~Price of Fuel Used~~
 * Display information to user
   * ~~Map~~
   * ~~Directions~~

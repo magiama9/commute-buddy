@@ -63,8 +63,9 @@ $(document).ready(function() {
       },
       success: function(response) {
         console.log(response);
+
+        // ROUTE DISTANCE IS RETURNED IN METERS
         routeDistance = response.routes[0].distance;
-        console.log(routeDistance);
         metersToMiles(routeDistance);
         console.log(routeDistanceMiles);
       },

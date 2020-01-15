@@ -1,8 +1,10 @@
-
 /* GLOBAL VARIABLES */
 /******************** */
 
 let routeCost;
+let routeCostWeekly;
+let routeCostMonthly;
+let routeCostYearly;
 let originLat;
 let originLon;
 let destinationLat;
@@ -36,6 +38,8 @@ $(document).ready(function() {
 
     console.log(directions);
     console.log(this);
+
+    // ADDS A CLICK HANDLER ON THE BUTTON ONCE THE MAP LOADS
     $("#testButton").on("click", function() {
       let routeOrigin = directions.getOrigin();
       let routeDestination = directions.getDestination();
@@ -49,6 +53,7 @@ $(document).ready(function() {
           " and Origin Latitude is: " +
           destinationLat
       );
+      getMPG();
       getDistance();
     });
   });
@@ -85,6 +90,8 @@ $(document).ready(function() {
     });
   }
 
+  // FETCHES GAS PRICES FROM API AND CALCULATES COST BASED ON THAT DISTANCE
+  // THIS FUNCTION IS CALLED INSIDE OF getDistance()
   function fuelCalc() {
     $.ajax({
       url: "https://api.collectapi.com/gasPrice/stateUsaPrice?state=",
@@ -94,18 +101,51 @@ $(document).ready(function() {
         data: {}
       }
     }).then(function(response) {
-      
       var totalDistance = parseInt(routeDistanceMiles);
       console.log(response);
       routeCost = (
         (totalDistance / mpg) *
         response.result.state.gasoline
       ).toFixed(2);
+      console.log(routeCost);
+      multiplyCost();
     });
   }
   // CONVERTS A VALUE IN METERS TO THE EQUIVALENT VALUE IN MILES WITH TWO DECIMAL POINTS
   // N.B. THE VALUE RETURNED IS A __STRING__
   function metersToMiles(num) {
     routeDistanceMiles = (num / 1609.34).toFixed(2);
+  }
+
+  // IF THE USER HITS ENTER ON THE INPUT FIELD, IT GETS THE MPG AND CALCULATES COST
+  $("#mpgInput").on("keydown", function(e) {
+    if (e.which === 13) {
+      getMPG();
+      getDistance();
+    }
+  });
+
+  // IF USER INPUTS AN MPG VALUE, USE THAT VALUE AS MPG
+  // OTHERWISE MPG DEFAULTS TO 25 MPG(NATIONAL AVERAGE)
+  function getMPG() {
+    if ($("#mpgInput").val()) {
+      mpg = $("#mpgInput").val();
+      console.log(mpg);
+    }
+  }
+
+  function multiplyCost(){
+    // CONVERTS ROUTE COST TO A NUMBER SO MATH CAN BE PERFORMED
+    let costNum = parseInt(routeCost);
+
+    // 5 DAYS/ WK
+    routeCostWeekly = costNum * 5;
+
+    // 21 WORKING DAYS/MO ON AVERAGE
+    routeCostMonthly = costNum * 21;
+
+    // 261 WORKING DAYS PER YEAR ON AVERAGE
+    routeCostYearly = costNum * 261;
+
   }
 });

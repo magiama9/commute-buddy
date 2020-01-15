@@ -12,6 +12,7 @@ let destinationLon;
 let routeDistance;
 let routeDistanceMiles;
 let mpg = 25;
+let travelPerWeek = 5;
 
 /********************* */
 
@@ -134,18 +135,32 @@ $(document).ready(function() {
     }
   }
 
-  function multiplyCost(){
+  // CALCULATES MULTIPLES OF ROUTE COST FOR WEEKLY/MONTHLY/YEARLY COSTS
+  function multiplyCost() {
     // CONVERTS ROUTE COST TO A NUMBER SO MATH CAN BE PERFORMED
     let costNum = parseInt(routeCost);
 
     // 5 DAYS/ WK
-    routeCostWeekly = costNum * 5;
+    routeCostWeekly = (costNum * parseInt(travelPerWeek)).toFixed(0);
 
-    // 21 WORKING DAYS/MO ON AVERAGE
-    routeCostMonthly = costNum * 21;
+    // 21 WORKING DAYS/MO ON AVERAGE, 4.2 WEEKS/MO ON AVERAGE
+    routeCostMonthly = (parseInt(routeCostWeekly) * 4.2).toFixed(0);
 
-    // 261 WORKING DAYS PER YEAR ON AVERAGE
-    routeCostYearly = costNum * 261;
+    // 261 WORKING DAYS PER YEAR ON AVERAGE, 12 Months a year, plus 9 additional days
+    routeCostYearly = (parseInt(routeCostMonthly) * 12 + 9).toFixed(0);
+    }
 
+  $("#commuterOptions").on("keydown", function(e) {
+    if (e.which === 13) {
+      getMPG();
+      timesPerWeek();
+      getDistance();
+    }
+  });
+
+  function timesPerWeek() {
+    if ($("#commuterOptions").val()) {
+      travelPerWeek = $("#commuterOptions").val();
+    }
   }
 });

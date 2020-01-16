@@ -42,3 +42,16 @@ h3 {
   align-content: flex;
   
 }
+
+.boxChecked {
+  display: none;
+}
+
+.none {
+  display: none;
+}
+
+.content li {
+  list-style-type: none;
+}
+

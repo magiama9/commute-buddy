@@ -215,8 +215,27 @@ $(document).ready(function() {
       getMPG();
       timesPerWeek();
       getDistance();
-    }
+    };
   });
+
+  $("#switchExample").on("click", function(e) {
+    // e.preventDefault();
+    console.log("hello");
+    
+    if($("#switchExample").is(':checked')) {
+      $("#switchExample").prop("checked", true);
+      $(".boxChecked").toggleClass("boxChecked");
+    }
+    else {
+      $("#switchExample").prop("checked", false);
+      $(".boxChecked").removeClass("boxChecked");
+    }
+
+    // $("#switchExample").prop('checked', true);
+    // $(".boxChecked").toggleClass("boxChecked");
+  })
+
+  
 
   function timesPerWeek() {
     if ($("#commuterOptions").val()) {

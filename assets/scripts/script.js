@@ -44,9 +44,6 @@ $(document).ready(function() {
   map.on("load", function() {
     map.addControl(directions, "top-left");
 
-    console.log(directions);
-    console.log(this);
-
     // ADDS A CLICK HANDLER ON THE BUTTON ONCE THE MAP LOADS
     $("#testButton").on("click", function() {
       let routeOrigin = directions.getOrigin();
@@ -90,7 +87,7 @@ $(document).ready(function() {
 
         // ROUTE DISTANCE IS RETURNED IN METERS
         routeDistance = response.routes[0].distance;
-        metersToMiles(routeDistance);
+        routeDistanceMiles = metersToMiles(routeDistance);
         console.log(routeDistanceMiles);
         fuelCalc();
       },
@@ -117,7 +114,7 @@ $(document).ready(function() {
       },
       success: function(response) {
         console.log(response);
-        
+
         // ROUTE DISTANCE IS RETURNED IN METERS
         walkingDistance = metersToMiles(response.routes[0].distance);
         console.log(walkingDistance);
@@ -129,7 +126,7 @@ $(document).ready(function() {
       }
     });
   }
-  
+
   function getCyclingDistance() {
     $.ajax({
       url:
@@ -229,41 +226,39 @@ $(document).ready(function() {
     }
   }
 
-  
   // CALORIES BURNED WALKING
   function walkingCal() {
-    if($("#female").checked) {
+    if ($("#female").checked) {
       // WOMEN
-      var womenWalk = (170 * 2 / 3.5) * walkingDistance;
+      var womenWalk = ((170 * 2) / 3.5) * walkingDistance;
       console.log(womenWalk);
-    };
-    if($("#male").checked) {
+    }
+    if ($("#male").checked) {
       // MEN
-      var menWalk = (200 * 2 / 3.5) * walkingDistance;
+      var menWalk = ((200 * 2) / 3.5) * walkingDistance;
       console.log(menWalk);
-    } 
+    }
   }
 
   // CALORIES BURNED CYCLING
   function cyclingCal() {
-    if($("#female").checked) {
+    if ($("#female").checked) {
       // WOMEN
-      var womenCycle = (170 * 1.9 / 12) * cyclingDistance;
+      var womenCycle = ((170 * 1.9) / 12) * cyclingDistance;
       console.log(womenCycle);
-    };
-    if($("#male").checked) {
+    }
+    if ($("#male").checked) {
       // MEN
-      var menCycle = (200 * 1.9 / 12) * cyclingDistance;
+      var menCycle = ((200 * 1.9) / 12) * cyclingDistance;
       console.log(menCycle);
-    } 
+    } else {
+      console.log("No conditions were met.");
+    }
   }
-
-
 
   function fuelCalc() {
     var totalDistance = parseInt(routeDistanceMiles);
     routeCost = ((totalDistance / mpg) * gasPrice).toFixed(2);
     console.log(routeCost);
   }
-
 });

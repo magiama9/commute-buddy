@@ -63,6 +63,7 @@ h3 {
   
 }
 
+
 .footer {
   /* display: block; */
   /* padding-bottom:0; */
@@ -78,3 +79,13 @@ h3 {
 .bottom {
   margin-top: 10;
 }
+
+.boxChecked {
+  display: none;
+}
+
+.content li {
+  list-style-type: none;
+}
+
+

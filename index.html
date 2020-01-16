@@ -31,29 +31,56 @@
       type="text/css"
     />
     <link rel="stylesheet" href="assets/styles/styles.css" />
-    
+    <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Seymour+One&display=swap" rel="stylesheet">
   </head>
   <body>
     <!--wrap map in ancestor tile div-->
 
-    <div class = "tile is-ancester">
-      <div class = "tile is-parent is-header">
-        <div class = "tile is-child has-text-centered">
-          <h1>Trip Mapping</h1>
-        </div>
-      </div>   
+    <div class = "tile is-ancestor">
+        <div class = "tile is-parent is-verticle is-header">
+          <div class = "tile is-child has-text-centered">
+            <h1>Trip Mapping</h1>
+          </div>
+        </div>          
     </div>
-         
-
-    <!-- DIV FOR MAP -->
-    <div class="conatiner is-fluid">
-      <!-- <div class = "tile is-ancester">
-        <div class = "tile is-9 notification has-background-grey maptile">   -->
+ <!-- <div class = "tile is-ancestor">
+    <div class = "tile level is-parent">
+     <!--user input card will input kens card code
+      <article class="tile level-right is-3 is-child box">
+          <button class="button is-primary is-large">Calculate Costs
+              <i class="fas fa-gas-pump"></i>
+          </button>
+          <hr>
+      <div class="field is-horizontal">
+          <div class="field-label is-normal">
+            <label class="label">MPG:</label>
+          </div>
+          <div class="field-body">
+            <div class="field">
+            <p class="control">
+          <input class="input" type="text" style="width: 100px"> </p>
+            </div>
+          <div class="field">
+              <input id="switchColorDefault" type="checkbox" name="switchColorDefault" class="switch" checked="checked">
+              <label for="switchColorDefault">Commute Route?</label>
+            </div>
+        </article>
+      </div> -->
+      <!--holds map-->
+        <div class = "container has-content-centered">
           <div id="map"></div>
         </div>
-      </div>
+     
+      
     </div>
+    <!-- <div class = "tile is-child bottom">
+      <div class ="userinfo"></div>
+        <button id="testButton">Hello</button>
+        <input id="mpgInput" type="text" placeholder="Enter your mpg">
+        <input id="commuterOptions" type="text" placeholder = "How many times a week do you take this route">
+        <input id="male" type="radio">Male</input>
+        <input id="female" type="radio">Female</input> -->
 
     <!-- DIV FOR CALCULATING MPG $ & CALORIES -->
     <div class="level-right">
@@ -85,20 +112,21 @@
           </article>
         </div>
 
+
       </div>
     </div> 
   </div>
 
 <!--       
-    DIV FOR ABOUT TOOL
+    DIV FOR ABOUT TOOL -->
     <div class ="tile is-ancester">
-
       <div class = "tile is-parent is-12 notification is-blue about-tool">
         <div class = "tile is-child has-text-centered">
           <h1>About Tool:</h1>
         </div>
       </div>
-    </div> -->
+    </div>
+
 
     <!-- DIV FOR ENTERING MPG, TIMES PER WEEK, AND GENDER -->
     <div>
@@ -109,17 +137,6 @@
       <input id="female" type="radio" name="gender">Female</input>
       <input id="non-binary" type="radio" name="gender">Non-Binary</input>
     </div>
-
-    
-    <!-- Bootstrap and Stylesheet link-->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-
-  </head>
-  <body>
-
-    
-   
-  
 
     <!-- JQuery JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -138,7 +155,6 @@
     <script src="assets/scripts/script.js"></script>
 
 
-
-
+  
   </body>
 </html>

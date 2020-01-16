@@ -21,6 +21,8 @@ let totalDistance;
 let mpg = 25;
 let travelPerWeek = 5;
 let gasPrice = 2.571;
+let cyclePerWeek = 0;
+let walkPerWeek = 0;
 
 /********************* */
 
@@ -259,16 +261,21 @@ $(document).ready(function() {
       // WOMEN
       var womenWalk = Math.floor(((170 * 2) / 3.5) * walkingDistance);
       console.log("You will burn " + womenWalk + " calories by walking.");
+      poundsPerYear(womenWalk);
     }
     if ($("#male").is(":checked")) {
       // MEN
       var menWalk = Math.floor(((200 * 2) / 3.5) * walkingDistance);
       console.log("You will burn " + menWalk + " calories by walking.");
-    }
+
+      poundsPerYear(menWalk);
+    } 
     if ($("#non-binary").is(":checked")) {
       // NON-BINARY/PREFER NOT TO SPECIFY
+
       var nonBinaryWalk = Math.floor(((185 * 2) / 3.5) * walkingDistance);
       console.log("You will burn " + nonBinaryWalk + " calories by walking.");
+      poundsPerYear(nonBinaryWalk);
     } else {
       console.log("No conditions were met.");
     }
@@ -280,17 +287,29 @@ $(document).ready(function() {
       // WOMEN
       var womenCycle = Math.floor(((170 * 1.9) / 12) * cyclingDistance);
       console.log("You will burn " + womenCycle + " calories by cycling.");
+      poundsPerYear(womenCycle);
     } else if ($("#male").is(":checked")) {
       // MEN
       var menCycle = Math.floor(((200 * 1.9) / 12) * cyclingDistance);
       console.log("You will burn " + menCycle + " calories by cycling.");
+      poundsPerYear(menCycle);
     } else if ($("#non-binary").is(":checked")) {
+
       // NON-BINARY/PREFER NOT TO SPECIFY
       var nonBinaryCycle = Math.floor(((185 * 1.9) / 12) * cyclingDistance);
       console.log("You will burn " + nonBinaryCycle + " calories by cycling.");
+      poundsPerYear(nonBinaryCycle);
     } else {
       console.log("No conditions were met.");
     }
+  }
+
+  function poundsPerYear (num) {
+    var weeklyCal = num * (parseInt(travelPerWeek) + parseInt(cyclePerWeek) + parseInt(walkPerWeek));
+    var monthlyCal = weeklyCal * 4.357;
+    var yearlyCal = monthlyCal * 12;
+    var yearlyPounds = yearlyCal / 3500;
+    console.log("You will burn " + Math.floor(yearlyPounds) + " pounds per year.");
   }
 
   function fuelCalc() {

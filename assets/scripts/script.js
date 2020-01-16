@@ -117,16 +117,19 @@ $(document).ready(function() {
       },
       success: function(response) {
         console.log(response);
-
+        
         // ROUTE DISTANCE IS RETURNED IN METERS
         walkingDistance = metersToMiles(response.routes[0].distance);
         console.log(walkingDistance);
+
+        walkingCal();
       },
       error: function() {
         console.log("ERROR");
       }
     });
   }
+  
   function getCyclingDistance() {
     $.ajax({
       url:
@@ -149,6 +152,8 @@ $(document).ready(function() {
         // ROUTE DISTANCE IS RETURNED IN METERS
         cyclingDistance = metersToMiles(response.routes[0].distance);
         console.log(cyclingDistance);
+
+        cyclingCal();
       },
       error: function() {
         console.log("ERROR");
@@ -229,11 +234,13 @@ $(document).ready(function() {
   function walkingCal() {
     if($("#female").checked) {
       // WOMEN
-      var womenCal = (170 * 2 / 3.5) * walkingDistance;
+      var womenWalk = (170 * 2 / 3.5) * walkingDistance;
+      console.log(womenWalk);
     };
     if($("#male").checked) {
       // MEN
-      var menCal = (200 * 2 / 3.5) * walkingDistance;
+      var menWalk = (200 * 2 / 3.5) * walkingDistance;
+      console.log(menWalk);
     } 
   }
 
@@ -241,11 +248,13 @@ $(document).ready(function() {
   function cyclingCal() {
     if($("#female").checked) {
       // WOMEN
-      var womenCal = (170 * 1.9 / 12) * cyclingDistance;
+      var womenCycle = (170 * 1.9 / 12) * cyclingDistance;
+      console.log(womenCycle);
     };
     if($("#male").checked) {
       // MEN
-      var menCal = (200 * 1.9 / 12) * cyclingDistance;
+      var menCycle = (200 * 1.9 / 12) * cyclingDistance;
+      console.log(menCycle);
     } 
   }
 

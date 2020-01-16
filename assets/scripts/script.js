@@ -228,29 +228,30 @@ $(document).ready(function() {
 
   // CALORIES BURNED WALKING
   function walkingCal() {
-    if ($("#female").checked) {
+    if ($("#female").is(":checked")) {
       // WOMEN
       var womenWalk = ((170 * 2) / 3.5) * walkingDistance;
-      console.log(womenWalk);
+      console.log("You will burn " + womenWalk + " calories by walking.");
     }
-    if ($("#male").checked) {
+    if ($("#male").is(":checked")) {
       // MEN
       var menWalk = ((200 * 2) / 3.5) * walkingDistance;
-      console.log(menWalk);
+      console.log("You will burn " + menWalk + " calories by walking.");
+    } else {
+      console.log("No conditions were met.");
     }
   }
 
   // CALORIES BURNED CYCLING
   function cyclingCal() {
-    if ($("#female").checked) {
+    if ($("#female").is(":checked")) {
       // WOMEN
       var womenCycle = ((170 * 1.9) / 12) * cyclingDistance;
-      console.log(womenCycle);
-    }
-    if ($("#male").checked) {
+      console.log("You will burn " + womenCycle + " calories by cycling.");
+    } else if ($("#male").is(":checked")) {
       // MEN
       var menCycle = ((200 * 1.9) / 12) * cyclingDistance;
-      console.log(menCycle);
+      console.log("You will burn " + menCycle + " calories by cycling.");
     } else {
       console.log("No conditions were met.");
     }

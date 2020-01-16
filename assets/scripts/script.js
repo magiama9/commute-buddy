@@ -230,28 +230,37 @@ $(document).ready(function() {
   function walkingCal() {
     if ($("#female").is(":checked")) {
       // WOMEN
-      var womenWalk = ((170 * 2) / 3.5) * walkingDistance;
+      var womenWalk = Math.floor(((170 * 2) / 3.5) * walkingDistance);
       console.log("You will burn " + womenWalk + " calories by walking.");
     }
     if ($("#male").is(":checked")) {
       // MEN
-      var menWalk = ((200 * 2) / 3.5) * walkingDistance;
+      var menWalk = Math.floor(((200 * 2) / 3.5) * walkingDistance);
       console.log("You will burn " + menWalk + " calories by walking.");
+    } 
+    if ($("#non-binary").is(":checked")) {
+      // MEN
+      var nonBinaryWalk = Math.floor(((185 * 2) / 3.5) * walkingDistance);
+      console.log("You will burn " + nonBinaryWalk + " calories by walking.");
     } else {
       console.log("No conditions were met.");
-    }
+    } 
   }
 
   // CALORIES BURNED CYCLING
   function cyclingCal() {
     if ($("#female").is(":checked")) {
       // WOMEN
-      var womenCycle = ((170 * 1.9) / 12) * cyclingDistance;
+      var womenCycle = Math.floor(((170 * 1.9) / 12) * cyclingDistance);
       console.log("You will burn " + womenCycle + " calories by cycling.");
     } else if ($("#male").is(":checked")) {
       // MEN
-      var menCycle = ((200 * 1.9) / 12) * cyclingDistance;
+      var menCycle = Math.floor(((200 * 1.9) / 12) * cyclingDistance);
       console.log("You will burn " + menCycle + " calories by cycling.");
+    } else if ($("#non-binary").is(":checked")) {
+      // WOMEN
+      var nonBinaryCycle = Math.floor(((185 * 1.9) / 12) * cyclingDistance);
+      console.log("You will burn " + nonBinaryCycle + " calories by cycling.");
     } else {
       console.log("No conditions were met.");
     }

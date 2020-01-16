@@ -218,21 +218,14 @@ $(document).ready(function() {
     };
   });
 
+  // FUNCTION TO SHOW MPG COST ONCE COMMUTE IS CLICKED
   $("#switchExample").on("click", function(e) {
-    // e.preventDefault();
-    console.log("hello");
-    
     if($("#switchExample").is(':checked')) {
-      $("#switchExample").prop("checked", true);
-      $(".boxChecked").toggleClass("boxChecked");
+      $(".boxChecked").show();
     }
     else {
-      $("#switchExample").prop("checked", false);
-      $(".boxChecked").removeClass("boxChecked");
+      $(".boxChecked").hide();
     }
-
-    // $("#switchExample").prop('checked', true);
-    // $(".boxChecked").toggleClass("boxChecked");
   })
 
   

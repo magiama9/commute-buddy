@@ -230,22 +230,17 @@ $(document).ready(function() {
       getMPG();
       timesPerWeek();
       getDistance();
-    };
+    }
   });
-
 
   // FUNCTION TO SHOW MPG COST ONCE COMMUTE IS CLICKED
   $("#switchExample").on("click", function(e) {
-    if($("#switchExample").is(':checked')) {
+    if ($("#switchExample").is(":checked")) {
       $(".boxChecked").show();
-    }
-    else {
+    } else {
       $(".boxChecked").hide();
     }
-  })
-
-  
-
+  });
 
   // Handles fetching user input for how often they travel the route
 
@@ -269,7 +264,7 @@ $(document).ready(function() {
       console.log("You will burn " + menWalk + " calories by walking.");
 
       poundsPerYear(menWalk);
-    } 
+    }
     if ($("#non-binary").is(":checked")) {
       // NON-BINARY/PREFER NOT TO SPECIFY
 
@@ -294,7 +289,6 @@ $(document).ready(function() {
       console.log("You will burn " + menCycle + " calories by cycling.");
       poundsPerYear(menCycle);
     } else if ($("#non-binary").is(":checked")) {
-
       // NON-BINARY/PREFER NOT TO SPECIFY
       var nonBinaryCycle = Math.floor(((185 * 1.9) / 12) * cyclingDistance);
       console.log("You will burn " + nonBinaryCycle + " calories by cycling.");
@@ -304,12 +298,18 @@ $(document).ready(function() {
     }
   }
 
-  function poundsPerYear (num) {
-    var weeklyCal = num * (parseInt(travelPerWeek) + parseInt(cyclePerWeek) + parseInt(walkPerWeek));
+  function poundsPerYear(num) {
+    var weeklyCal =
+      num *
+      (parseInt(travelPerWeek) +
+        parseInt(cyclePerWeek) +
+        parseInt(walkPerWeek));
     var monthlyCal = weeklyCal * 4.357;
     var yearlyCal = monthlyCal * 12;
     var yearlyPounds = yearlyCal / 3500;
-    console.log("You will burn " + Math.floor(yearlyPounds) + " pounds per year.");
+    console.log(
+      "You will burn " + Math.floor(yearlyPounds) + " pounds per year."
+    );
   }
 
   function fuelCalc() {

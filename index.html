@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -8,11 +7,15 @@
     <title>Group Project 01</title>
 
     <!--bulma-->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css">
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css"
+    />
     <!--font awesome if neccessary-->
-    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
-
-
+    <script
+      defer
+      src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"
+    ></script>
 
     <!-- MapBox GL Directions Plugin -->
     <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.0.2/mapbox-gl-directions.js"></script>
@@ -31,22 +34,28 @@
       type="text/css"
     />
     <link rel="stylesheet" href="assets/styles/styles.css" />
-    <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Seymour+One&display=swap" rel="stylesheet">
+    <link
+      href="https://fonts.googleapis.com/css?family=Raleway&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Seymour+One&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <!--wrap map in ancestor tile div-->
 
-    <div class = "tile is-ancestor">
-        <div class = "tile is-parent is-verticle is-header">
-          <div class = "tile is-child has-text-centered">
-            <h1>Trip Mapping</h1>
-          </div>
-        </div>          
+    <div class="tile is-ancestor">
+      <div class="tile is-parent is-verticle is-header">
+        <div class="tile is-child has-text-centered">
+          <h1>Trip Mapping</h1>
+        </div>
+      </div>
     </div>
- <!-- <div class = "tile is-ancestor">
+    <!-- <div class = "tile is-ancestor">
     <div class = "tile level is-parent">
-     <!--user input card will input kens card code
+     user input card will input kens card code
       <article class="tile level-right is-3 is-child box">
           <button class="button is-primary is-large">Calculate Costs
               <i class="fas fa-gas-pump"></i>
@@ -67,13 +76,11 @@
             </div>
         </article>
       </div> -->
-      <!--holds map-->
-        <div class = "container has-content-centered">
-          <div id="map"></div>
-        </div>
-     
-      
-    </div>
+    <!--holds map-->
+      <div class="container has-content-centered">
+        <div id="map"></div>
+      </div>
+
     <!-- <div class = "tile is-child bottom">
       <div class ="userinfo"></div>
         <button id="testButton">Hello</button>
@@ -84,77 +91,81 @@
 
     <!-- DIV FOR CALCULATING MPG $ & CALORIES -->
     <div class="level-right">
-    <div class="tile is-child is-3 has-background-grey-light">
-
-      <div class="tile is ancestor">
-        <div class="tile is-parent is-3">
-          <article class="tile is-child box">
-            <button class="button is-primary is-large is-fullwidth">Calculate Costs
-              <i class="fas fa-gas-pump"></i>
-            </button>
-            <hr>
-            <div class="field is-horizontal">
-              <div class="field-label is-normal">
-              <label class="label">MPG:</label>
-              </div>
-              <div class="field-body">
-                <div class="field">
-                <p class="control"></p>
-                <input class="input" type="text" style="width: 100px">
+      <div class="tile is-child is-3 has-background-grey-light">
+        <div class="tile is ancestor">
+          <div class="tile is-parent is-3">
+            <article class="tile is-child box">
+              <button class="button is-primary is-large is-fullwidth">
+                Calculate Costs
+                <i class="fas fa-gas-pump"></i>
+              </button>
+              <hr />
+              <div class="field is-horizontal">
+                <div class="field-label is-normal">
+                  <label class="label">MPG:</label>
                 </div>
-
+                <div class="field-body">
+                  <div class="field">
+                    <p class="control"></p>
+                    <input class="input" type="text" style="width: 100px" />
+                  </div>
+                </div>
+                <div class="field">
+                  <input
+                    id="switchColorDefault"
+                    type="checkbox"
+                    name="switchColorDefault"
+                    class="switch"
+                    checked="checked"
+                  />
+                  <label for="switchColorDefault">Commute Route?</label>
+                </div>
               </div>
-              <div class="field">
-                <input id="switchColorDefault" type="checkbox" name="switchColorDefault" class="switch" checked="checked">
-                <label for="switchColorDefault">Commute Route?</label>
-              </div>
-            </div>
-          </article>
+            </article>
+          </div>
         </div>
-
-
       </div>
-    </div> 
-  </div>
+    </div>
 
-<!--       
+    <!--       
     DIV FOR ABOUT TOOL -->
-    <div class ="tile is-ancester">
-      <div class = "tile is-parent is-12 notification is-blue about-tool">
-        <div class = "tile is-child has-text-centered">
+    <div class="tile is-ancester">
+      <div class="tile is-parent is-12 notification is-blue about-tool">
+        <div class="tile is-child has-text-centered">
           <h1>About Tool:</h1>
         </div>
       </div>
     </div>
 
-
     <!-- DIV FOR ENTERING MPG, TIMES PER WEEK, AND GENDER -->
     <div>
       <button id="testButton">Hello</button>
-      <input id="mpgInput" type="text" placeholder="Enter your mpg">
-      <input id="commuterOptions" type="text" placeholder = "How many times a week do you take this route">
-      <input id="male" type="radio" name="gender" checked>Male</input>
-      <input id="female" type="radio" name="gender">Female</input>
-      <input id="non-binary" type="radio" name="gender">Non-Binary</input>
+      <input id="mpgInput" type="text" placeholder="Enter your mpg" />
+      <input
+        id="commuterOptions"
+        type="text"
+        placeholder="How many times a week do you take this route"
+      />
+      <input id="male" type="radio" name="gender" value="male" checked /><label
+        for="male"
+        >Male</label
+      >
+      <input id="female" type="radio" name="gender" value="female" /><label
+        for="female"
+        >Female</label
+      >
+      <input
+        id="non-binary"
+        type="radio"
+        name="gender"
+        value="non-binary"
+      /><label for="non-binary">Prefer not to specify</label>
     </div>
 
     <!-- JQuery JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
-    <!-- Moment JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
-
-    <!-- Compressed Foundation JavaScript -->
-    <script
-      src="https://cdn.jsdelivr.net/npm/foundation-sites@6.4.3/dist/js/foundation.min.js"
-      integrity="sha256-mRYlCu5EG+ouD07WxLF8v4ZAZYCA6WrmdIXyn1Bv9Vk= sha384-KzKofw4qqetd3kvuQ5AdapWPqV1ZI+CnfyfEwZQgPk8poOLWaabfgJOfmW7uI+AV sha512-0gHfaMkY+Do568TgjJC2iMAV0dQlY4NqbeZ4pr9lVUTXQzKu8qceyd6wg/3Uql9qA2+3X5NHv3IMb05wb387rA=="
-      crossorigin="anonymous"
-    ></script>
-
     <!-- Custom JavaScript -->
     <script src="assets/scripts/script.js"></script>
-
-
-  
   </body>
 </html>

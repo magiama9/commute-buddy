@@ -1,24 +1,42 @@
 .is-header{
-  background-color: darkblue;
+  background-color:#FB3309;
   color: white;
-  font-family: 'Seymour One', sans-serif;
+  font-family: 'Raleway', sans-serif;
+
+}
+.is-ancester {
+  position: relative;
+}
+.box {
+  position:absolute;
+  right: 100px;
+  z-index: 5;
+}
+.userinfo{
+  padding: 0;
 }
 
-.about-tool{
-  background-color: darkblue;
+.container{
+  position: absolute;
+  left: 100px; 
+  height: 400px;  
+  margin-bottom: 5;
+}
+/* .about-tool{
+  margin-top: 10px;
+  background-color:#FB3309;
   height:60px;
   color: white;
-}
+} */
 body {
   margin: 0;
   padding: 0;
-  background: #004d40;
+  background: black;
   box-sizing: border-box;
 }
 #map {
-  position: absolute;
   padding:10px;
-  width: 90%;
+  width: 95%;
   height: 90%;
 }
 
@@ -37,8 +55,26 @@ h3 {
 }
 
 .maptile {
-  width: 600px;
-  height: 400px;
-  align-content: flex;
+  width: 500px;
+  height: 300px;
+  align-content: auto;
+  /* margin-bottom:10px; */
+  /* position: relative; */
   
+}
+
+.footer {
+  /* display: block; */
+  /* padding-bottom:0; */
+  margin-top: 20px;
+  height: 10px;
+  background-color: orangered;
+  /* position: relative; */
+  margin-bottom: 0;
+  /* width: 100%vw; */
+  /* padding: 0; */
+}
+
+.bottom {
+  margin-top: 10;
 }

@@ -2,6 +2,10 @@
 /******************** */
 
 let routeCost;
+let runningCosts;
+let runningCostWeekly;
+let runningCostMonthly;
+let runningCostYearly;
 let routeCostWeekly;
 let routeCostMonthly;
 let routeCostYearly;
@@ -13,6 +17,7 @@ let routeDistance;
 let walkingDistance;
 let cyclingDistance;
 let routeDistanceMiles;
+let totalDistance;
 let mpg = 25;
 let travelPerWeek = 5;
 let gasPrice = 2.571;
@@ -58,7 +63,7 @@ $(document).ready(function() {
           " and Origin Latitude is: " +
           destinationLat
       );
-      getMPG();
+      // getMPG();
       getDistance();
       getWalkingDistance();
       getCyclingDistance();
@@ -87,9 +92,10 @@ $(document).ready(function() {
 
         // ROUTE DISTANCE IS RETURNED IN METERS
         routeDistance = response.routes[0].distance;
-        routeDistanceMiles = metersToMiles(routeDistance);
-        console.log(routeDistanceMiles);
+        routeDistanceMiles = parseFloat(metersToMiles(routeDistance));
         fuelCalc();
+        runningCostCalc();
+        multiplyCost();
       },
       error: function() {
         console.log("ERROR");
@@ -113,11 +119,8 @@ $(document).ready(function() {
         access_token: mapboxgl.accessToken
       },
       success: function(response) {
-        console.log(response);
-
         // ROUTE DISTANCE IS RETURNED IN METERS
         walkingDistance = metersToMiles(response.routes[0].distance);
-        console.log(walkingDistance);
 
         walkingCal();
       },
@@ -148,7 +151,6 @@ $(document).ready(function() {
 
         // ROUTE DISTANCE IS RETURNED IN METERS
         cyclingDistance = metersToMiles(response.routes[0].distance);
-        console.log(cyclingDistance);
 
         cyclingCal();
       },
@@ -193,25 +195,32 @@ $(document).ready(function() {
   function getMPG() {
     if ($("#mpgInput").val()) {
       mpg = $("#mpgInput").val();
-      console.log(mpg);
+      console.log("test test test");
+    } else {
+      mpg = 25;
     }
   }
 
   // CALCULATES MULTIPLES OF ROUTE COST FOR WEEKLY/MONTHLY/YEARLY COSTS
   function multiplyCost() {
+    // CALCULATES RUNNING COST TO BE USED IN CALCULATIONS BELOW
+
     // CONVERTS ROUTE COST TO A NUMBER SO MATH CAN BE PERFORMED
-    let costNum = parseInt(routeCost);
-    let runningCostNum = parseInt(runningCosts);
+
+    let costNum = parseFloat(routeCost);
+    let runningCostNum = parseFloat(runningCosts);
 
     // 5 DAYS/ WK
-    routeCostWeekly = (costNum * parseInt(travelPerWeek)).toFixed(0);
-    runningCostWeekly = (runningCostNum * parseInt(travelPerWeek)).toFixed(0);
+    routeCostWeekly = (costNum * parseFloat(travelPerWeek)).toFixed(0);
+    runningCostWeekly = (runningCostNum * parseFloat(travelPerWeek)).toFixed(0);
 
     // 21 WORKING DAYS/MO ON AVERAGE, 4.357 WEEKS/MO ON AVERAGE
-    routeCostMonthly = (parseInt(routeCostWeekly) * 4.357).toFixed(0);
-
+    routeCostMonthly = (parseFloat(routeCostWeekly) * 4.357).toFixed(0);
+    runningCostMonthly = (parseFloat(runningCostWeekly) * 4.357).toFixed(0);
     // 261 WORKING DAYS PER YEAR ON AVERAGE, 12 Months a year, plus 9 additional days
-    routeCostYearly = (parseInt(routeCostMonthly) * 12).toFixed(0);
+    routeCostYearly = (parseFloat(routeCostMonthly) * 12).toFixed(0);
+    runningCostYearly = (parseFloat(runningCostMonthly) * 12).toFixed(0);
+    console.log("All in, this will cost you " + runningCostYearly);
   }
 
   $("#commuterOptions").on("keydown", function(e) {
@@ -240,14 +249,14 @@ $(document).ready(function() {
       // MEN
       var menWalk = Math.floor(((200 * 2) / 3.5) * walkingDistance);
       console.log("You will burn " + menWalk + " calories by walking.");
-    } 
+    }
     if ($("#non-binary").is(":checked")) {
-      // MEN
+      // NON-BINARY/PREFER NOT TO SPECIFY
       var nonBinaryWalk = Math.floor(((185 * 2) / 3.5) * walkingDistance);
       console.log("You will burn " + nonBinaryWalk + " calories by walking.");
     } else {
       console.log("No conditions were met.");
-    } 
+    }
   }
 
   // CALORIES BURNED CYCLING
@@ -261,7 +270,7 @@ $(document).ready(function() {
       var menCycle = Math.floor(((200 * 1.9) / 12) * cyclingDistance);
       console.log("You will burn " + menCycle + " calories by cycling.");
     } else if ($("#non-binary").is(":checked")) {
-      // WOMEN
+      // NON-BINARY/PREFER NOT TO SPECIFY
       var nonBinaryCycle = Math.floor(((185 * 1.9) / 12) * cyclingDistance);
       console.log("You will burn " + nonBinaryCycle + " calories by cycling.");
     } else {
@@ -270,12 +279,13 @@ $(document).ready(function() {
   }
 
   function fuelCalc() {
-    let totalDistance = parseInt(routeDistanceMiles);
+    totalDistance = parseFloat(routeDistanceMiles);
     routeCost = ((totalDistance / mpg) * gasPrice).toFixed(2);
     console.log(routeCost);
   }
 
-  function runningCost() {
-    runningCosts = totalDistance * 0.58;
+  function runningCostCalc() {
+    runningCosts = parseFloat(routeDistanceMiles) * 0.58;
+    console.log("running costs are " + runningCosts);
   }
 });

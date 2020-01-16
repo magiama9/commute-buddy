@@ -201,15 +201,17 @@ $(document).ready(function() {
   function multiplyCost() {
     // CONVERTS ROUTE COST TO A NUMBER SO MATH CAN BE PERFORMED
     let costNum = parseInt(routeCost);
+    let runningCostNum = parseInt(runningCosts);
 
     // 5 DAYS/ WK
     routeCostWeekly = (costNum * parseInt(travelPerWeek)).toFixed(0);
+    runningCostWeekly = (runningCostNum * parseInt(travelPerWeek)).toFixed(0);
 
-    // 21 WORKING DAYS/MO ON AVERAGE, 4.2 WEEKS/MO ON AVERAGE
-    routeCostMonthly = (parseInt(routeCostWeekly) * 4.2).toFixed(0);
+    // 21 WORKING DAYS/MO ON AVERAGE, 4.357 WEEKS/MO ON AVERAGE
+    routeCostMonthly = (parseInt(routeCostWeekly) * 4.357).toFixed(0);
 
     // 261 WORKING DAYS PER YEAR ON AVERAGE, 12 Months a year, plus 9 additional days
-    routeCostYearly = (parseInt(routeCostMonthly) * 12 + 9).toFixed(0);
+    routeCostYearly = (parseInt(routeCostMonthly) * 12).toFixed(0);
   }
 
   $("#commuterOptions").on("keydown", function(e) {
@@ -220,6 +222,7 @@ $(document).ready(function() {
     }
   });
 
+  // Handles fetching user input for how often they travel the route
   function timesPerWeek() {
     if ($("#commuterOptions").val()) {
       travelPerWeek = $("#commuterOptions").val();
@@ -258,8 +261,12 @@ $(document).ready(function() {
   }
 
   function fuelCalc() {
-    var totalDistance = parseInt(routeDistanceMiles);
+    let totalDistance = parseInt(routeDistanceMiles);
     routeCost = ((totalDistance / mpg) * gasPrice).toFixed(2);
     console.log(routeCost);
+  }
+
+  function runningCost() {
+    runningCosts = totalDistance * 0.58;
   }
 });

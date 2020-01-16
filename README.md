@@ -4,8 +4,12 @@ Repo for the first group project. Each of us has our own user branch to commit t
 ## APPLICATION BASICS
 This is a navigation application that provides an interactive map and turn-by-turn directions. The user has the option of viewing multiple different routes based on mode of transport and traffic. Based on the route a user inputs, the application calculates fuel usage and thus fuel cost, allowing a user to make informed financial decisions regarding trips and commuting.
 
-### USER STORY
+### USER STORIES
 As commuters in a large city, we have options for method of transport; often the best method of transport cannot be determined solely on time to destination. We want to be able to see both how long a trip will take us via various modes of transport and how much it will cost us in fuel to drive. With that information, we can decide whether it makes more sense to drive, walk, cycle, or take public transport.
+
+As road trippers, costs such as lodging and food are often easy to plan around; however, fuel and driving related costs often go unaccounted for. By getting not only directions, but fuel costs, we can more accurately budget for our road trip and focus on enjoying ourselves.
+
+As a business owner, estimating costs for myself and my employees can be a gargantuan task, especially if employees are able to expense transportation costs to the business. By being able to plan for monthly and yearly expenses, I can more efficiently allocate resources and also estimate what deductions are available on my taxes to save me even more money.
 
 ## MINIMUM VIABLE PRODUCT SPECS
 * Functional display of map/navigation

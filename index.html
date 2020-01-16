@@ -35,7 +35,7 @@
     <link href="https://fonts.googleapis.com/css?family=Seymour+One&display=swap" rel="stylesheet">
   </head>
   <body>
-    <!--wrap map in ancester tile div-->
+    <!--wrap map in ancestor tile div-->
 
     <div class = "tile is-ancester">
         <div class = "tile is-parent is-header">
@@ -46,12 +46,12 @@
           
       </div>
          
-    <div class = "tile is-ancester">
-      
+    <div class = "tile is-ancestor">
       <div class = "tile is-9 notification has-background-grey maptile">  
         <div id="map"></div>
-      </div>
-      <div class = "tile is-child is-3 has-background-grey-light"><div class="tile is ancestor">
+  </div>
+      <div class = "tile is-child is-3 has-background-grey-light">
+      <div class="tile is ancestor">
         <div class="tile is-parent is-3">
             <article class="tile is-child box">
               <button class="button is-primary is-large is-fullwidth">Calculate Costs
@@ -67,17 +67,32 @@
                 <p class="control">
               <input class="input" type="text" style="width: 100px"> </p>
                 </div>
-              <div class="field">
-                  <input id="switchColorDefault" type="checkbox" name="switchColorDefault" class="switch" checked="checked">
-                  <label for="switchColorDefault">Commute Route?</label>
-                </div>
-            </article>
+                <div class="field">
+                    <input id="switchExample" type="checkbox" name="switchExample" class="switch" unchecked>
+                    <label for="switchExample">Regular Commute?</label>
+            </div>
+          </div>
+        </div>
+          <div class="content">
+            <ul>
+              <li>Cost per trip:</li>
+            </ul>
+            <ul>
+            <div class="boxChecked">
+              <li>Cost/week:</li>
+              <li>Cost/month:</li>
+              <li>Cost/year:</li>
+            </div>
+            </ul>
+          </div>
+        </div>
+      </article>
       </div>
     </div>
   </div>
       
     </div>
-    <div class = "tile is-ancester">
+    <div class = "tile is-ancestor">
       <div class = "tile is-parent is-12 notification is-blue about-tool">
         <div class = "tile is-child has-text-centered">
           <h1>About Tool:</h1>

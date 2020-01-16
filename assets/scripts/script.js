@@ -228,10 +228,25 @@ $(document).ready(function() {
       getMPG();
       timesPerWeek();
       getDistance();
-    }
+    };
   });
 
+
+  // FUNCTION TO SHOW MPG COST ONCE COMMUTE IS CLICKED
+  $("#switchExample").on("click", function(e) {
+    if($("#switchExample").is(':checked')) {
+      $(".boxChecked").show();
+    }
+    else {
+      $(".boxChecked").hide();
+    }
+  })
+
+  
+
+
   // Handles fetching user input for how often they travel the route
+
   function timesPerWeek() {
     if ($("#commuterOptions").val()) {
       travelPerWeek = $("#commuterOptions").val();

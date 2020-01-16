@@ -38,60 +38,71 @@
     <!--wrap map in ancester tile div-->
 
     <div class = "tile is-ancester">
-        <div class = "tile is-parent is-header">
-          <div class = "tile is-child has-text-centered">
-            <h1>Trip Mapping</h1>
-          </div>
+      <div class = "tile is-parent is-header">
+        <div class = "tile is-child has-text-centered">
+          <h1>Trip Mapping</h1>
         </div>
-          
-      </div>
+      </div>   
+    </div>
          
-    <div class = "tile is-ancester">
-      
-      <div class = "tile is-9 notification has-background-grey maptile">  
-        <div id="map"></div>
+    <!-- DIV FOR MAP -->
+    <div class="conatiner is-fluid">
+      <!-- <div class = "tile is-ancester">
+        <div class = "tile is-9 notification has-background-grey maptile">   -->
+          <div id="map"></div>
+        </div>
       </div>
-      <div class = "tile is-child is-3 has-background-grey-light"><div class="tile is ancestor">
+    </div>
+
+    <!-- DIV FOR CALCULATING MPG $ & CALORIES -->
+    <div class="level-right">
+    <div class="tile is-child is-3 has-background-grey-light">
+      <div class="tile is ancestor">
         <div class="tile is-parent is-3">
-            <article class="tile is-child box">
-              <button class="button is-primary is-large is-fullwidth">Calculate Costs
-                  <i class="fas fa-gas-pump"></i>
-              </button>
-              <hr>
-          <div class="field is-horizontal">
+          <article class="tile is-child box">
+            <button class="button is-primary is-large is-fullwidth">Calculate Costs
+              <i class="fas fa-gas-pump"></i>
+            </button>
+            <hr>
+            <div class="field is-horizontal">
               <div class="field-label is-normal">
-                <label class="label">MPG:</label>
+              <label class="label">MPG:</label>
               </div>
               <div class="field-body">
                 <div class="field">
-                <p class="control">
-              <input class="input" type="text" style="width: 100px"> </p>
+                <p class="control"></p>
+                <input class="input" type="text" style="width: 100px">
                 </div>
+              </div>
               <div class="field">
-                  <input id="switchColorDefault" type="checkbox" name="switchColorDefault" class="switch" checked="checked">
-                  <label for="switchColorDefault">Commute Route?</label>
-                </div>
-            </article>
+                <input id="switchColorDefault" type="checkbox" name="switchColorDefault" class="switch" checked="checked">
+                <label for="switchColorDefault">Commute Route?</label>
+              </div>
+            </div>
+          </article>
+        </div>
       </div>
-    </div>
+    </div> 
   </div>
-      
-    </div>
-    <div class = "tile is-ancester">
+<!--       
+    DIV FOR ABOUT TOOL
+    <div class ="tile is-ancester">
       <div class = "tile is-parent is-12 notification is-blue about-tool">
         <div class = "tile is-child has-text-centered">
           <h1>About Tool:</h1>
         </div>
       </div>
-    </div>
+    </div> -->
 
-   
-    <button id="testButton">Hello</button>
-    <input id="mpgInput" type="text" placeholder="Enter your mpg">
-    <input id="commuterOptions" type="text" placeholder = "How many times a week do you take this route">
-    <input id="male" type="radio" name="malefemale" checked>Male</input>
-    <input id="female" type="radio" name="malefemale">Female</input>
-    <input id="non-binary" type="radio" name="malefemale">Non-Binary</input>
+    <!-- DIV FOR ENTERING MPG, TIMES PER WEEK, AND GENDER -->
+    <div>
+      <button id="testButton">Hello</button>
+      <input id="mpgInput" type="text" placeholder="Enter your mpg">
+      <input id="commuterOptions" type="text" placeholder = "How many times a week do you take this route">
+      <input id="male" type="radio" name="gender" checked>Male</input>
+      <input id="female" type="radio" name="gender">Female</input>
+      <input id="non-binary" type="radio" name="gender">Non-Binary</input>
+    </div>
 
     
     <!-- Bootstrap and Stylesheet link-->

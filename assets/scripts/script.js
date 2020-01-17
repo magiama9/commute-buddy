@@ -179,13 +179,13 @@ $(document).ready(function() {
     return (num / 1609.34).toFixed(2);
   }
 
-  // IF THE USER HITS ENTER ON THE INPUT FIELD, IT GETS THE MPG AND CALCULATES COST
-  $("#mpgInput").on("keydown", function(e) {
-    if (e.which === 13) {
-      getMPG();
-      getDistance();
-    }
-  });
+  // // IF THE USER HITS ENTER ON THE INPUT FIELD, IT GETS THE MPG AND CALCULATES COST
+  // $("#mpgInput").on("keydown", function(e) {
+  //   if (e.which === 13) {
+  //     getMPG();
+  //     getDistance();
+  //   }
+  // });
 
   // IF USER INPUTS AN MPG VALUE, USE THAT VALUE AS MPG
   // OTHERWISE MPG DEFAULTS TO 25 MPG(NATIONAL AVERAGE)
@@ -225,14 +225,14 @@ $(document).ready(function() {
     $("#runningCostYear").text(runningCostYearly);
   }
 
-  $("#commuterOptions").on("keydown", function(e) {
-    if (e.which === 13) {
-      c;
-      getMPG();
-      timesPerWeek();
-      getDistance();
-    }
-  });
+  // $("#commuterOptions").on("keydown", function(e) {
+  //   if (e.which === 13) {
+  //     c;
+  //     getMPG();
+  //     timesPerWeek();
+  //     getDistance();
+  //   }
+  // });
 
   // FUNCTION TO SHOW MPG COST ONCE COMMUTE IS CLICKED
   $("#switchExample").on("click", function() {

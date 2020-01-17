@@ -222,7 +222,7 @@ $(document).ready(function() {
   }
 
   $("#commuterOptions").on("keydown", function(e) {
-    if (e.which === 13) {
+    if (e.which === 13) {c
       getMPG();
       timesPerWeek();
       getDistance();

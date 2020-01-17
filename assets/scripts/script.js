@@ -59,7 +59,7 @@ $(document).ready(function() {
       originLat = routeOrigin.geometry.coordinates[1];
       destinationLon = routeDestination.geometry.coordinates[0];
       destinationLat = routeDestination.geometry.coordinates[1];
-      $("li[class*=dynamic]").toggleClass("tripDisplay");
+      $("li[class*=dynamic]").removeClass("tripDisplay");
       getMPG();
       timesPerWeek();
       getDistance();
@@ -256,24 +256,25 @@ $(document).ready(function() {
     if ($("#female").is(":checked")) {
       // WOMEN
       var womenWalk = Math.floor(((170 * 2) / 3.5) * walkingDistance);
-      console.log("You will burn " + womenWalk + " calories by walking.");
-      poundsPerYear(womenWalk);
+      $("#walkCal").text(
+        "You will burn " + womenWalk + " calories by walking."
+      );
+      $("#walkPounds").text(poundsPerYear(womenWalk));
     }
     if ($("#male").is(":checked")) {
       // MEN
       var menWalk = Math.floor(((200 * 2) / 3.5) * walkingDistance);
-      console.log("You will burn " + menWalk + " calories by walking.");
-
-      poundsPerYear(menWalk);
+      $("#walkCal").text("You could burn " + menWalk + " calories by walking.");
+      $("#walkPounds").text(poundsPerYear(menWalk));
     }
     if ($("#non-binary").is(":checked")) {
       // NON-BINARY/PREFER NOT TO SPECIFY
 
       var nonBinaryWalk = Math.floor(((185 * 2) / 3.5) * walkingDistance);
-      console.log("You will burn " + nonBinaryWalk + " calories by walking.");
-      poundsPerYear(nonBinaryWalk);
-    } else {
-      console.log("No conditions were met.");
+      $("#walkCal").text(
+        "You could burn " + nonBinaryWalk + " calories by walking."
+      );
+      $("#walkPounds").text(poundsPerYear(nonBinaryWalk));
     }
   }
 
@@ -282,20 +283,15 @@ $(document).ready(function() {
     if ($("#female").is(":checked")) {
       // WOMEN
       var womenCycle = Math.floor(((170 * 1.9) / 12) * cyclingDistance);
-      console.log("You will burn " + womenCycle + " calories by cycling.");
-      poundsPerYear(womenCycle);
+      $("#cyclePounds").text(poundsPerYear(womenCycle));
     } else if ($("#male").is(":checked")) {
       // MEN
       var menCycle = Math.floor(((200 * 1.9) / 12) * cyclingDistance);
-      console.log("You will burn " + menCycle + " calories by cycling.");
-      poundsPerYear(menCycle);
+      $("#cyclePounds").text(poundsPerYear(menCycle));
     } else if ($("#non-binary").is(":checked")) {
       // NON-BINARY/PREFER NOT TO SPECIFY
       var nonBinaryCycle = Math.floor(((185 * 1.9) / 12) * cyclingDistance);
-      console.log("You will burn " + nonBinaryCycle + " calories by cycling.");
-      poundsPerYear(nonBinaryCycle);
-    } else {
-      console.log("No conditions were met.");
+      $("#cyclePounds").text(poundsPerYear(nonBinaryCycle));
     }
   }
 
@@ -307,10 +303,8 @@ $(document).ready(function() {
         parseInt(walkPerWeek));
     var monthlyCal = weeklyCal * 4.357;
     var yearlyCal = monthlyCal * 12;
-    var yearlyPounds = yearlyCal / 3500;
-    console.log(
-      "You will burn " + Math.floor(yearlyPounds) + " pounds per year."
-    );
+    var yearlyPounds = Math.floor(yearlyCal / 3500);
+    return yearlyPounds;
   }
 
   function fuelCalc() {

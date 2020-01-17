@@ -64,7 +64,6 @@
       <div class="tile is-ancestor">
         <div class="tile level is-parent">
           <article class="tile level-right is-3 is-child mpgbox box">
-            
             <div class="field is-horizontal">
               <div class="field-body">
                 <div class="field">
@@ -113,24 +112,37 @@
             <!-- MAIN CONTENT AREA OF THE CARD -->
             <div class="content">
               <ul>
-                <li class="dynamic tripDisplay">Fuel will cost you $<span id="costTrip"></span> for this trip.</li b>
+                <li class="dynamic tripDisplay">
+                  Fuel will cost you $<span id="costTrip"></span> for this trip.
+                </li>
                 <div class="boxChecked">
-                  <li class="dynamic tripDisplay">Fuel alone will cost you $<span id=costWeek></span> every week.</li>
-                  <li class="dynamic tripDisplay">Fuel alone will cost you $<span id=costMonth></span> every month.</li>
-                  <li class="dynamic tripDisplay">Fuel alone will cost you $<span id=costYear></span> every year. Your total running costs including depreciation and insurance will be $<span id="runningCostYear"></span>.</li>
+                  <li class="dynamic tripDisplay">
+                    Fuel alone will cost you $<span id="costWeek"></span> every
+                    week.
+                  </li>
+                  <li class="dynamic tripDisplay">
+                    Fuel alone will cost you $<span id="costMonth"></span> every
+                    month.
+                  </li>
+                  <li class="dynamic tripDisplay">
+                    Fuel alone will cost you $<span id="costYear"></span> every
+                    year. Your total running costs including depreciation and
+                    insurance will be $<span id="runningCostYear"></span>.
+                  </li>
                 </div>
               </ul>
             </div>
           </article>
           <article class="tile level-right is-3 is-child calbox box">
             <div class="field-body">
-              <div class="field">
+              <div class="field level">
                 <p class="control"></p>
                 <input
                   id="male"
                   type="radio"
                   name="gender"
                   value="male"
+                  class="level-item"
                   checked
                 /><label for="male">Male</label>
                 <input
@@ -138,26 +150,34 @@
                   type="radio"
                   name="gender"
                   value="female"
+                  class="level-item"
                 /><label for="female">Female</label>
                 <input
                   id="non-binary"
                   type="radio"
                   name="gender"
                   value="non-binary"
+                  class="level-item"
                 /><label for="non-binary">Non-Binary</label>
               </div>
-              <div class="content">
-                <ul>
-                  <li id="walkCal">c</li>
-                  <li id="cycleCal">a</li>
-                </ul>
-                <ul>
-                  <div class="boxChecked">
-                    <li id="cyclePounds">b</li>
-                    <li id="walkPounds">d</li>
-                  </div>
-                </ul>
-              </div>
+            </div>
+            <div class="content">
+              <ul>
+                <li id="walkCal"></li>
+                <li id="cycleCal"></li>
+                <div class="boxChecked">
+                  <li>
+                    By walking just once per week, you would burn
+                    <span id="walkPounds"></span> pounds worth of calories every
+                    year.
+                  </li>
+                  <li>
+                    By cycling just once per week, you would burn
+                    <span id="cyclePounds"></span> pounds worth of calories
+                    every year.
+                  </li>
+                </div>
+              </ul>
             </div>
           </article>
         </div>

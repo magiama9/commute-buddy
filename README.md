@@ -1,7 +1,8 @@
 # group-project-01
-Repo for the first group project. Each of us has our own user branch to commit to that we will then merge into master to deploy.
+Repo for the first group project of GWU Bootcamp. Main project work completed in a team of four including Sam Randels, Khalil Hall, Aya Yoshida, and Ken Shiraishi.
 
 ## APPLICATION BASICS
+![Demo Gif](https://github.com/magiama9/group-project-01/blob/master/assets/demo/project-demo-gif.gif)
 This is a navigation application that provides an interactive map and turn-by-turn directions. The user has the option of viewing multiple different routes based on mode of transport and traffic. Based on the route a user inputs, the application calculates fuel usage and thus fuel cost, allowing a user to make informed financial decisions regarding trips and commuting.
 
 ### USER STORIES
@@ -31,6 +32,7 @@ As a business owner, estimating costs for myself and my employees can be a garga
 * MapBox API --- Used to generate maps, directions, and distance.
 * Gas Prices API via Current API--- Used to get current nationwide gas prices
 * Bulma --- responsive, mobile-first CSS framework
+    * Bulma-Switch extension --- styles checkbox as a toggle switch. Compiled from source using Sass and Dart.
 
 ## MVP TO-DO
 * ~~Wireframe front-end~~
@@ -49,7 +51,7 @@ As a business owner, estimating costs for myself and my employees can be a garga
 * Display information to user
   * ~~Map~~
   * ~~Directions~~
-  * Gas Cost
+  * ~~Gas Cost~~
 
 ## WISHLIST TO-DO
 
@@ -60,5 +62,5 @@ As a business owner, estimating costs for myself and my employees can be a garga
 * ~~Calculate commute costs daily, weekly, monthly, and yearly for driving~~
   * Calculate comparable commute costs using DC Metro/DC MetroBus
 * ~~Calculate calories burned for walking and cycling~~
-  * Calculate pounds burned/weight lost over period of time?
-* Calculate total running cost over commuting period (using IRS cost/mile?)
+  * ~~Calculate pounds burned/weight lost over period of time~~
+* ~~Calculate total running cost over commuting period (using IRS cost/mile?)~~

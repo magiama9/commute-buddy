@@ -59,7 +59,7 @@ $(document).ready(function() {
       originLat = routeOrigin.geometry.coordinates[1];
       destinationLon = routeDestination.geometry.coordinates[0];
       destinationLat = routeDestination.geometry.coordinates[1];
-
+      $("li[class*=dynamic]").toggleClass("tripDisplay");
       getMPG();
       timesPerWeek();
       getDistance();
@@ -211,23 +211,23 @@ $(document).ready(function() {
     // 5 DAYS/ WK
     routeCostWeekly = (costNum * parseFloat(travelPerWeek)).toFixed(0);
     runningCostWeekly = (runningCostNum * parseFloat(travelPerWeek)).toFixed(0);
-    $("#costWeek").text(routeCostWeekly)
-    $("#runningCostWeek").text(runningCostWeekly)
+    $("#costWeek").text(routeCostWeekly);
+
     // 21 WORKING DAYS/MO ON AVERAGE, 4.357 WEEKS/MO ON AVERAGE
     routeCostMonthly = (parseFloat(routeCostWeekly) * 4.357).toFixed(0);
     runningCostMonthly = (parseFloat(runningCostWeekly) * 4.357).toFixed(0);
-    $("#costMonth").text(routeCostMonthly)
-    $("#runningCostMonth").text(runningCostMonthly)
+    $("#costMonth").text(routeCostMonthly);
+
     // 261 WORKING DAYS PER YEAR ON AVERAGE, 12 Months a year, plus 9 additional days
     routeCostYearly = (parseFloat(routeCostMonthly) * 12).toFixed(0);
     runningCostYearly = (parseFloat(runningCostMonthly) * 12).toFixed(0);
-    $("#costYear").text(routeCostYearly)
-    $("#runningCostYear").text(runningCostYearly)
-
+    $("#costYear").text(routeCostYearly);
+    $("#runningCostYear").text(runningCostYearly);
   }
 
   $("#commuterOptions").on("keydown", function(e) {
-    if (e.which === 13) {c
+    if (e.which === 13) {
+      c;
       getMPG();
       timesPerWeek();
       getDistance();
@@ -316,7 +316,7 @@ $(document).ready(function() {
   function fuelCalc() {
     totalDistance = parseFloat(routeDistanceMiles);
     routeCost = ((totalDistance / mpg) * gasPrice).toFixed(2);
-    $("#costTrip").text("Your trip will cost $"+routeCost+".")
+    $("#costTrip").text(routeCost);
   }
 
   function runningCostCalc() {

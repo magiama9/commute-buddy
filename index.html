@@ -92,6 +92,8 @@
                 >
               </div>
             </div>
+
+            <!-- WHERE USER CHOOSES IF IT IS A COMMUTE OR NOT -->
             <div class="field">
               <p class="control"></p>
               <input
@@ -101,19 +103,21 @@
                 placeholder="How many times a week?"
               />
             </div>
+
+            <!-- CALCULATE BUTTON -->
             <button id="calcButton" class="button is-primary is-small">
               Calculate Costs
               <i class="fas fa-gas-pump"></i>
             </button>
+
+            <!-- MAIN CONTENT AREA OF THE CARD -->
             <div class="content">
               <ul>
-                <li id="costTrip"></li>
-              </ul>
-              <ul>
+                <li class="dynamic tripDisplay">Fuel will cost you $<span id="costTrip"></span> for this trip.</li b>
                 <div class="boxChecked">
-                  <li>Fuel alone will cost you $<span id=costWeek></span> every week and total costs will be $<span id="runningCostWeek"></span>.</li>
-                  <li>Fuel alone will cost you $<span id=costMonth></span> every month and total costs will be $<span id="runningCostMonth"></span>.</li>
-                  <li>Fuel alone will cost you $<span id=costYear></span> every year and total costs will be $<span id="runningCostYear"></span>.</li>
+                  <li class="dynamic tripDisplay">Fuel alone will cost you $<span id=costWeek></span> every week.</li>
+                  <li class="dynamic tripDisplay">Fuel alone will cost you $<span id=costMonth></span> every month.</li>
+                  <li class="dynamic tripDisplay">Fuel alone will cost you $<span id=costYear></span> every year. Your total running costs including depreciation and insurance will be $<span id="runningCostYear"></span>.</li>
                 </div>
               </ul>
             </div>

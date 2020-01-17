@@ -1,53 +1,47 @@
-.is-header{
-  background-color:#1f2126;
+html {
+  background: #1f2126;
+}
+.is-header {
+  background-color: #1f2126;
   color: white;
-  font-family: 'Raleway', sans-serif;
+  font-family: "Raleway", sans-serif;
   font-size: 36px;
   margin-bottom: -5px;
 }
-span{
+span {
   color: orangered;
 }
 
 /* .is-ancester { */
-  /* position: relative; */
+/* position: relative; */
 /* } */
 .mpgbox {
-  position:absolute;
+  position: absolute;
   right: 8px;
-  top:8px;
+  top: 8px;
   z-index: 5;
-  background-color: rgba(255,255,255,.7);
-  
+  background-color: rgba(255, 255, 255, 0.7);
 }
 .calbox {
-  position:absolute;
+  position: absolute;
   z-index: 5;
-  background-color: rgba(255,255,255,.7);
+  background-color: rgba(255, 255, 255, 0.7);
   right: 8px;
-  bottom:8px;
-  
+  bottom: 8px;
 }
 
 .commute {
   color: #1f2126;
   padding: 0;
 }
-html{
-  background: #1f2126;
-}
-.container{
+
+.container {
   position: relative;
   margin-top: -10px;
   height: 82.5vh;
   padding-bottom: 0;
 }
-/* .about-tool{
-  margin-top: 10px;
-  background-color:#FB3309;
-  height:60px;
-  color: white;
-} */
+
 body {
   margin: 0;
   padding: 0;
@@ -55,45 +49,12 @@ body {
   box-sizing: border-box;
 }
 #map {
-  /* padding:5px; */
   width: 100%;
   height: 100%;
 }
 
-.form-group {
-  padding-left: 20px;
-  padding-top: 40px;
-}
-
 h3 {
   padding-top: 30px;
-}
-
-.tripInfo li {
-  display: inline-block;
-  justify-content: space-around;
-}
-
-.maptile {
-  width: 500px;
-  height: 300px;
-  align-content: auto;
-  /* margin-bottom:10px; */
-  /* position: relative; */
-  
-}
-
-
-.footer {
-  /* display: block; */
-  /* padding-bottom:0; */
-  margin-top: 20px;
-  height: 10px;
-  background-color: orangered;
-  /* position: relative; */
-  margin-bottom: 0;
-  /* width: 100%vw; */
-  /* padding: 0; */
 }
 
 .bottom {
@@ -104,8 +65,16 @@ h3 {
   display: none;
 }
 
-.content li {
+.content ul {
   list-style-type: none;
+  background: rgba(31, 33, 38, 0.8);
+  color: #fff;
+  margin-left: 0px;
+}
+.content ul span {
+  font-weight: bold;
 }
 
-
+.tripDisplay {
+  display: none;
+}

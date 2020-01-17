@@ -7,6 +7,9 @@
     <title>Group Project 01</title>
 
     <!--bulma-->
+
+    <!-- N.B. THIS IS A CSS FILE COMPILED FROM THE BULMA-SWITCH EXTENSION USING SASS AND SASS DART AS PROCESSORS IN THE COMMAND LINE -->
+    <link rel="stylesheet" href="assets/styles/sass-test.css" />
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css"
@@ -36,6 +39,7 @@
       href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.0.2/mapbox-gl-directions.css"
       type="text/css"
     />
+    
     <link rel="stylesheet" href="assets/styles/styles.css" />
     <link
       href="https://fonts.googleapis.com/css?family=Raleway&display=swap"
@@ -47,6 +51,11 @@
     />
   </head>
   <body>
+    <!-- <div class="field">
+      <input id="switchExample" type="checkbox" name="switchExample" class="switch" checked="checked">
+      <label for="switchExample">Switch example</label>
+    </div>
+     -->
     <!--wrap map in ancestor tile div-->
 
     <div class="tile level is-ancestor">
@@ -64,10 +73,6 @@
       <div class="tile is-ancestor">
         <div class="tile level is-parent">
           <article class="tile level-right is-3 is-child mpgbox box">
-            <button id="calcButton" class="button is-primary is-small">
-              Calculate Costs
-              <i class="fas fa-gas-pump"></i>
-            </button>
             <div class="field is-horizontal">
               <div class="field-body">
                 <div class="field">
@@ -75,93 +80,119 @@
                   <input
                     class="input"
                     type="text"
-                    placeholder="Enter your car's MPG."
+                    placeholder="Your car's MPG."
+                    id="mpgInput"
                   />
                 </div>
               </div>
 
-              <div class="level">
+              <div class="level field">
                 <input
-                  class="level-item"
                   id="switchExample"
                   type="checkbox"
                   name="switchExample"
-                  class="switch"
+                  class="level-item switch"
                   unchecked
                 />
-                <label class="level-item label" for="switchExample"
-                  >Is this your commute?</label
+                <label class="label" for="switchExample"
+                  >Commute?</label
                 >
               </div>
             </div>
+
+            <!-- WHERE USER CHOOSES IF IT IS A COMMUTE OR NOT -->
             <div class="field">
               <p class="control"></p>
               <input
                 id="commuterOptions"
-                class="input"
+                class="input boxChecked"
                 type="text"
                 placeholder="How many times a week?"
               />
             </div>
+
+            <!-- CALCULATE BUTTON -->
+            <button id="calcButton" class="button is-primary is-small">
+              Calculate Costs
+              <i class="fas fa-gas-pump"></i>
+            </button>
+
+            <!-- MAIN CONTENT AREA OF THE CARD -->
             <div class="content">
               <ul>
-                <li id="CostTrip"></li>
-              </ul>
-              <ul>
+                <li class="dynamic tripDisplay">
+                  Fuel will cost you <span id="costTrip"></span> for this trip.
+                </li>
                 <div class="boxChecked">
-                  <li id="costWeek"></li>
-                  <li id="costMonth"></li>
-                  <li id="costYear"></li>
+                  <li class="dynamic tripDisplay">
+                    Fuel alone will cost you <span id="costWeek"></span> every
+                    week, <span id="costMonth"></span> every month, and
+                    <span id="costYear"></span>
+                    every year.
+                  </li>
+                  <li class="dynamic tripDisplay">
+                    Your total running costs for the year including depreciation
+                    and insurance will be <span id="runningCostYear"></span>.
+                  </li>
                 </div>
               </ul>
             </div>
           </article>
           <article class="tile level-right is-3 is-child calbox box">
-            <div class="field is-horizontal">
-              <div class="field-label is-normal">
-                <label class="label">MPG:</label>
-              </div>
-
-              <div class="field-body">
-                <div class="field">
-                  <p class="control"></p>
-                  <input class="input" type="text" style="width: 100px" />
-                </div>
+            <div class="field-body">
+              <div class="field level">
+                <p class="control"></p>
+                <input
+                  id="male"
+                  type="radio"
+                  name="gender"
+                  value="male"
+                  class="level-item"
+                  checked
+                /><label for="male">Male</label>
+                <input
+                  id="female"
+                  type="radio"
+                  name="gender"
+                  value="female"
+                  class="level-item"
+                /><label for="female">Female</label>
+                <input
+                  id="non-binary"
+                  type="radio"
+                  name="gender"
+                  value="non-binary"
+                  class="level-item"
+                /><label for="non-binary">Non-Binary</label>
               </div>
             </div>
             <div class="content">
               <ul>
-                <li>Cost per trip:</li>
+                <li class="dynamic tripDisplay">
+                  You would burn <span id="walkCal"></span> calories by walking
+                  this route.
+                </li>
+                <li class="dynamic tripDisplay">
+                  You would burn <span id="cycleCal"></span> calories by cycling
+                  this route.
+                </li>
+                <div class="boxChecked">
+                  <li class="dynamic tripDisplay">
+                    By walking your commute just once per week, you would burn
+                    <span id="walkPounds"></span> pounds worth of calories every
+                    year.
+                  </li>
+                  <li class="dynamic tripDisplay">
+                    By cycling your commute just once per week, you would burn
+                    <span id="cyclePounds"></span> pounds worth of calories
+                    every year.
+                  </li>
+                </div>
               </ul>
             </div>
           </article>
         </div>
       </div>
-    </div>
-
-    <!-- DIV FOR ENTERING MPG, TIMES PER WEEK, AND GENDER -->
-    <div>
-      <button id="testButton">Hello</button>
-      <input id="mpgInput" type="text" placeholder="Enter your mpg" />
-      <input
-        id="commuterOptions"
-        type="text"
-        placeholder="How many times a week do you take this route"
-      />
-      <input id="male" type="radio" name="gender" value="male" checked /><label
-        for="male"
-        >Male</label
-      >
-      <input id="female" type="radio" name="gender" value="female" /><label
-        for="female"
-        >Female</label
-      >
-      <input
-        id="non-binary"
-        type="radio"
-        name="gender"
-        value="non-binary"
-      /><label for="non-binary">Prefer not to specify</label>
     </div>
 
     <!-- JQuery JavaScript -->

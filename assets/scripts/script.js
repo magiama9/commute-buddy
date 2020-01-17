@@ -59,8 +59,9 @@ $(document).ready(function() {
       originLat = routeOrigin.geometry.coordinates[1];
       destinationLon = routeDestination.geometry.coordinates[0];
       destinationLat = routeDestination.geometry.coordinates[1];
-
-      // getMPG();
+      $("li[class*=dynamic]").removeClass("tripDisplay");
+      getMPG();
+      timesPerWeek();
       getDistance();
       getWalkingDistance();
       getCyclingDistance();
@@ -178,20 +179,19 @@ $(document).ready(function() {
     return (num / 1609.34).toFixed(2);
   }
 
-  // IF THE USER HITS ENTER ON THE INPUT FIELD, IT GETS THE MPG AND CALCULATES COST
-  $("#mpgInput").on("keydown", function(e) {
-    if (e.which === 13) {
-      getMPG();
-      getDistance();
-    }
-  });
+  // // IF THE USER HITS ENTER ON THE INPUT FIELD, IT GETS THE MPG AND CALCULATES COST
+  // $("#mpgInput").on("keydown", function(e) {
+  //   if (e.which === 13) {
+  //     getMPG();
+  //     getDistance();
+  //   }
+  // });
 
   // IF USER INPUTS AN MPG VALUE, USE THAT VALUE AS MPG
   // OTHERWISE MPG DEFAULTS TO 25 MPG(NATIONAL AVERAGE)
   function getMPG() {
     if ($("#mpgInput").val()) {
       mpg = $("#mpgInput").val();
-      console.log("test test test");
     } else {
       mpg = 25;
     }
@@ -208,27 +208,35 @@ $(document).ready(function() {
     let runningCostNum = parseFloat(runningCosts);
 
     // 5 DAYS/ WK
-    routeCostWeekly = (costNum * parseFloat(travelPerWeek)).toFixed(0);
-    runningCostWeekly = (runningCostNum * parseFloat(travelPerWeek)).toFixed(0);
-    $("#costWeek").text("This commute will cost you $" + routeCostWeekly+" per week.")
+    // COSTS ARE MULTIPLIED BY TWO BECAUSE A COMMUTE IS A RETURN TRIP
+    routeCostWeekly = (costNum * parseFloat(travelPerWeek) * 2).toFixed(0);
+    runningCostWeekly = (
+      runningCostNum *
+      parseFloat(travelPerWeek) *
+      2
+    ).toFixed(0);
+    $("#costWeek").text("$" + routeCostWeekly);
+
     // 21 WORKING DAYS/MO ON AVERAGE, 4.357 WEEKS/MO ON AVERAGE
     routeCostMonthly = (parseFloat(routeCostWeekly) * 4.357).toFixed(0);
-    $("#costMonth").text("This commute will cost you $" + routeCostMonthly+" per month.")
     runningCostMonthly = (parseFloat(runningCostWeekly) * 4.357).toFixed(0);
+    $("#costMonth").text("$" + routeCostMonthly);
+
     // 261 WORKING DAYS PER YEAR ON AVERAGE, 12 Months a year, plus 9 additional days
     routeCostYearly = (parseFloat(routeCostMonthly) * 12).toFixed(0);
-    $("#costYear").text("This commute will cost you $" + routeCostYearly + " per year.")
     runningCostYearly = (parseFloat(runningCostMonthly) * 12).toFixed(0);
-    console.log("All in, this will cost you " + runningCostYearly);
+    $("#costYear").text("$" + routeCostYearly);
+    $("#runningCostYear").text("$" + runningCostYearly);
   }
 
-  $("#commuterOptions").on("keydown", function(e) {
-    if (e.which === 13) {c
-      getMPG();
-      timesPerWeek();
-      getDistance();
-    }
-  });
+  // $("#commuterOptions").on("keydown", function(e) {
+  //   if (e.which === 13) {
+  //     c;
+  //     getMPG();
+  //     timesPerWeek();
+  //     getDistance();
+  //   }
+  // });
 
   // FUNCTION TO SHOW MPG COST ONCE COMMUTE IS CLICKED
   $("#switchExample").on("click", function() {
@@ -252,24 +260,21 @@ $(document).ready(function() {
     if ($("#female").is(":checked")) {
       // WOMEN
       var womenWalk = Math.floor(((170 * 2) / 3.5) * walkingDistance);
-      console.log("You will burn " + womenWalk + " calories by walking.");
-      poundsPerYear(womenWalk);
+      $("#walkCal").text(womenWalk);
+      $("#walkPounds").text(poundsPerYear(womenWalk));
     }
     if ($("#male").is(":checked")) {
       // MEN
       var menWalk = Math.floor(((200 * 2) / 3.5) * walkingDistance);
-      console.log("You will burn " + menWalk + " calories by walking.");
-
-      poundsPerYear(menWalk);
+      $("#walkCal").text(menWalk);
+      $("#walkPounds").text(poundsPerYear(menWalk));
     }
     if ($("#non-binary").is(":checked")) {
       // NON-BINARY/PREFER NOT TO SPECIFY
 
       var nonBinaryWalk = Math.floor(((185 * 2) / 3.5) * walkingDistance);
-      console.log("You will burn " + nonBinaryWalk + " calories by walking.");
-      poundsPerYear(nonBinaryWalk);
-    } else {
-      console.log("No conditions were met.");
+      $("#walkCal").text(nonBinaryWalk);
+      $("#walkPounds").text(poundsPerYear(nonBinaryWalk));
     }
   }
 
@@ -278,41 +283,39 @@ $(document).ready(function() {
     if ($("#female").is(":checked")) {
       // WOMEN
       var womenCycle = Math.floor(((170 * 1.9) / 12) * cyclingDistance);
-      console.log("You will burn " + womenCycle + " calories by cycling.");
-      poundsPerYear(womenCycle);
+      $("#cycleCal").text(womenCycle);
+      $("#cyclePounds").text(poundsPerYear(womenCycle));
     } else if ($("#male").is(":checked")) {
       // MEN
       var menCycle = Math.floor(((200 * 1.9) / 12) * cyclingDistance);
-      console.log("You will burn " + menCycle + " calories by cycling.");
-      poundsPerYear(menCycle);
+      $("#cycleCal").text(menCycle);
+      $("#cyclePounds").text(poundsPerYear(menCycle));
     } else if ($("#non-binary").is(":checked")) {
       // NON-BINARY/PREFER NOT TO SPECIFY
       var nonBinaryCycle = Math.floor(((185 * 1.9) / 12) * cyclingDistance);
-      console.log("You will burn " + nonBinaryCycle + " calories by cycling.");
-      poundsPerYear(nonBinaryCycle);
-    } else {
-      console.log("No conditions were met.");
+      $("#cycleCal").text(nonBinaryCycle);
+      $("#cyclePounds").text(poundsPerYear(nonBinaryCycle));
     }
   }
 
   function poundsPerYear(num) {
-    var weeklyCal =
-      num *
-      (parseInt(travelPerWeek) +
-        parseInt(cyclePerWeek) +
-        parseInt(walkPerWeek));
+    // CALCULATIONS CHANGED TO ONLY BE ONCE PER WEEK. CAN CHANGE BACK.
+    var weeklyCal = num;
+    // (parseInt(travelPerWeek) +
+    //   parseInt(cyclePerWeek) +
+    //   parseInt(walkPerWeek));
     var monthlyCal = weeklyCal * 4.357;
     var yearlyCal = monthlyCal * 12;
-    var yearlyPounds = yearlyCal / 3500;
-    console.log(
-      "You will burn " + Math.floor(yearlyPounds) + " pounds per year."
-    );
+
+    // POUNDS ARE DOUBLED BECAUSE A COMMUTE IS ROUNDTRIP
+    var yearlyPounds = ((yearlyCal / 3500) * 2).toFixed(1);
+    return yearlyPounds;
   }
 
   function fuelCalc() {
     totalDistance = parseFloat(routeDistanceMiles);
     routeCost = ((totalDistance / mpg) * gasPrice).toFixed(2);
-    $("#costTrip").text("Your trip will cost $"+routeCost+".")
+    $("#costTrip").text("$" + routeCost);
   }
 
   function runningCostCalc() {
@@ -328,4 +331,10 @@ $(document).ready(function() {
   //     placement: "left-start"
   //   });
   // }
+
+  // EVENT HANDLER TO UPDATE INFORMATION IF THEY CHANGE THEIR SELECTED GENDER
+  $("input[name=gender]:radio").on("click", function() {
+    walkingCal();
+    cyclingCal();
+  });
 });

@@ -211,16 +211,19 @@ $(document).ready(function() {
     // 5 DAYS/ WK
     routeCostWeekly = (costNum * parseFloat(travelPerWeek)).toFixed(0);
     runningCostWeekly = (runningCostNum * parseFloat(travelPerWeek)).toFixed(0);
-    $("#costWeek").text("This commute will cost you $" + routeCostWeekly+" per week.")
+    $("#costWeek").text(routeCostWeekly)
+    $("#runningCostWeek").text(runningCostWeekly)
     // 21 WORKING DAYS/MO ON AVERAGE, 4.357 WEEKS/MO ON AVERAGE
     routeCostMonthly = (parseFloat(routeCostWeekly) * 4.357).toFixed(0);
-    $("#costMonth").text("This commute will cost you $" + routeCostMonthly+" per month.")
     runningCostMonthly = (parseFloat(runningCostWeekly) * 4.357).toFixed(0);
+    $("#costMonth").text(routeCostMonthly)
+    $("#runningCostMonth").text(runningCostMonthly)
     // 261 WORKING DAYS PER YEAR ON AVERAGE, 12 Months a year, plus 9 additional days
     routeCostYearly = (parseFloat(routeCostMonthly) * 12).toFixed(0);
-    $("#costYear").text("This commute will cost you $" + routeCostYearly + " per year.")
     runningCostYearly = (parseFloat(runningCostMonthly) * 12).toFixed(0);
-    console.log("All in, this will cost you " + runningCostYearly);
+    $("#costYear").text(routeCostYearly)
+    $("#runningCostYear").text(runningCostYearly)
+
   }
 
   $("#commuterOptions").on("keydown", function(e) {

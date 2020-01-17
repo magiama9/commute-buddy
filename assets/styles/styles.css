@@ -1,26 +1,45 @@
 .is-header{
-  background-color:#FB3309;
+  background-color:#1f2126;
   color: white;
   font-family: 'Raleway', sans-serif;
+  font-size: 36px;
+  margin-bottom: -5px;
+}
+span{
+  color: orangered;
+}
 
-}
-.is-ancester {
-  position: relative;
-}
-.box {
+/* .is-ancester { */
+  /* position: relative; */
+/* } */
+.mpgbox {
   position:absolute;
-  right: 100px;
+  right: 65px;
   z-index: 5;
+  background-color: rgba(255,255,255,.7);
+  
 }
-.userinfo{
+.calbox {
+  position:absolute;
+  right: 65px;
+  bottom: 0px;
+  z-index: 5;
+  background-color: rgba(255,255,255,.7);
+  
+}
+
+.commute {
+  color: #1f2126;
   padding: 0;
 }
-
+html{
+  background: #1f2126;
+}
 .container{
-  position: absolute;
-  left: 100px; 
-  height: 400px;  
-  margin-bottom: 5;
+  position: relative;
+  margin-top: -10px;
+  height: 82.5vh;
+  padding-bottom: 0;
 }
 /* .about-tool{
   margin-top: 10px;
@@ -31,13 +50,13 @@
 body {
   margin: 0;
   padding: 0;
-  background: black;
+  background: #1f2126;
   box-sizing: border-box;
 }
 #map {
-  padding:10px;
-  width: 95%;
-  height: 90%;
+  /* padding:5px; */
+  width: 100%;
+  height: 100%;
 }
 
 .form-group {

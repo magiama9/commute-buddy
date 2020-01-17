@@ -73,6 +73,7 @@
                     class="input"
                     type="text"
                     placeholder="Enter your car's MPG."
+                    id="mpgInput"
                   />
                 </div>
               </div>
@@ -106,13 +107,13 @@
             </button>
             <div class="content">
               <ul>
-                <li id="CostTrip"></li>
+                <li id="costTrip"></li>
               </ul>
               <ul>
                 <div class="boxChecked">
-                  <li id="costWeek"></li>
-                  <li id="costMonth"></li>
-                  <li id="costYear"></li>
+                  <li>Fuel alone will cost you $<span id=costWeek></span> every week and total costs will be $<span id="runningCostWeek"></span>.</li>
+                  <li>Fuel alone will cost you $<span id=costMonth></span> every month and total costs will be $<span id="runningCostMonth"></span>.</li>
+                  <li>Fuel alone will cost you $<span id=costYear></span> every year and total costs will be $<span id="runningCostYear"></span>.</li>
                 </div>
               </ul>
             </div>

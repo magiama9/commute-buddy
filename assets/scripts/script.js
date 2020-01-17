@@ -60,7 +60,8 @@ $(document).ready(function() {
       destinationLon = routeDestination.geometry.coordinates[0];
       destinationLat = routeDestination.geometry.coordinates[1];
 
-      // getMPG();
+      getMPG();
+      timesPerWeek();
       getDistance();
       getWalkingDistance();
       getCyclingDistance();

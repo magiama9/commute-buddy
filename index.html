@@ -18,8 +18,11 @@
     ></script>
 
     <!-- MapBox GL Directions Plugin -->
+    <!-- Handles rendering of map section where user puts in search parameters and displays what the user sees -->
     <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.0.2/mapbox-gl-directions.js"></script>
+
     <!-- MapBox GL JS Library -->
+    <!-- Handles initial map rendering and interactivity -->
     <script src="https://api.mapbox.com/mapbox-gl-js/v1.6.1/mapbox-gl.js"></script>
 
     <!-- MapBox GL Styling -->
@@ -46,98 +49,95 @@
   <body>
     <!--wrap map in ancestor tile div-->
 
-    <div class="tile is-ancestor">
-      <div class="tile is-parent is-verticle is-header">
+    <div class="tile level is-ancestor">
+      <div class="tile level-item is-parent is-vertical is-header">
         <div class="tile is-child has-text-centered">
           <h1>COMMUTE\<span>buddy</span>\</h1>
         </div>
       </div>
     </div>
-    <div class="tile is-ancestor">
-      <div class="tile level is-parent">
-        <!-- DIV FOR CALCULATING MPG $ & CALORIES -->
 
-        <div class="container has-content-centered">
-          <div id="map"></div>
-        </div>
-        <article class="tile level-right is-3 is-child mpgbox box">
-          <button id="calcButton" class="button is-primary is-small">
-            Calculate Costs
-            <i class="fas fa-gas-pump"></i>
-          </button>
-          <div class="field is-horizontal">
-            <div class="field-body">
-              <div class="field">
-                <p class="control"></p>
+    <!-- DIV FOR CALCULATING MPG $ & CALORIES -->
+
+    <div class="container has-content-centered">
+      <div id="map"></div>
+      <div class="tile is-ancestor">
+        <div class="tile level is-parent">
+          <article class="tile level-right is-3 is-child mpgbox box">
+            <button id="calcButton" class="button is-primary is-small">
+              Calculate Costs
+              <i class="fas fa-gas-pump"></i>
+            </button>
+            <div class="field is-horizontal">
+              <div class="field-body">
+                <div class="field">
+                  <p class="control"></p>
+                  <input
+                    class="input"
+                    type="text"
+                    placeholder="Enter your car's MPG."
+                  />
+                </div>
+              </div>
+
+              <div class="level">
                 <input
-                  class="input"
-                  type="text"
-                  placeholder="Enter your car's MPG."
+                  class="level-item"
+                  id="switchExample"
+                  type="checkbox"
+                  name="switchExample"
+                  class="switch"
+                  unchecked
                 />
+                <label class="level-item label" for="switchExample"
+                  >Is this your commute?</label
+                >
               </div>
             </div>
-
-            <div class="level">
+            <div class="field">
+              <p class="control"></p>
               <input
-                class="level-item"
-                id="switchExample"
-                type="checkbox"
-                name="switchExample"
-                class="switch"
-                unchecked
+                id="commuterOptions"
+                class="input"
+                type="text"
+                placeholder="How many times a week?"
               />
-              <label class="level-item label" for="switchExample"
-                >Is this your commute?</label
-              >
             </div>
-          </div>
-          <div class="field">
-            <p class="control"></p>
-            <input
-              id="commuterOptions"
-              class="input"
-              type="text"
-              placeholder="How many times a week?"
-            />
-          </div>
-          <div class="content">
-            <ul>
-              <li>Cost per trip:</li>
-            </ul>
-            <ul>
-              <div class="boxChecked">
-                <li>Cost/week:</li>
-                <li>Cost/month:</li>
-                <li>Cost/year:</li>
+            <div class="content">
+              <ul>
+                <li>Cost per trip:</li>
+              </ul>
+              <ul>
+                <div class="boxChecked">
+                  <li>Cost/week:</li>
+                  <li>Cost/month:</li>
+                  <li>Cost/year:</li>
+                </div>
+              </ul>
+            </div>
+          </article>
+          <article class="tile level-right is-3 is-child calbox box">
+            <div class="field is-horizontal">
+              <div class="field-label is-normal">
+                <label class="label">MPG:</label>
               </div>
-            </ul>
-          </div>
-        </article>
-        <article class="tile level-right is-3 is-child calbox box">
-          <div class="field is-horizontal">
-            <div class="field-label is-normal">
-              <label class="label">MPG:</label>
-            </div>
 
-            <div class="field-body">
-              <div class="field">
-                <p class="control"></p>
-                <input class="input" type="text" style="width: 100px" />
+              <div class="field-body">
+                <div class="field">
+                  <p class="control"></p>
+                  <input class="input" type="text" style="width: 100px" />
+                </div>
               </div>
             </div>
-          </div>
-          <div class="content">
-            <ul>
-              <li>Cost per trip:</li>
-            </ul>
-          </div>
-        </article>
+            <div class="content">
+              <ul>
+                <li>Cost per trip:</li>
+              </ul>
+            </div>
+          </article>
+        </div>
       </div>
     </div>
-    <!-- </div> -->
-    <!-- </div> -->
-    <!-- </div> -->
-    <!--holds map-->
 
     <!-- DIV FOR ENTERING MPG, TIMES PER WEEK, AND GENDER -->
     <div>

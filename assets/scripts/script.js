@@ -202,6 +202,7 @@ $(document).ready(function() {
     // CALCULATES RUNNING COST TO BE USED IN CALCULATIONS BELOW
 
     // CONVERTS ROUTE COST TO A NUMBER SO MATH CAN BE PERFORMED
+    // PARSEFLOAT() KEEPS DECIMALS WHEN CONVERTING A STRING TO A NUMBER
 
     let costNum = parseFloat(routeCost);
     let runningCostNum = parseFloat(runningCosts);

@@ -52,19 +52,14 @@ $(document).ready(function() {
     map.addControl(directions, "top-left");
 
     // ADDS A CLICK HANDLER ON THE BUTTON ONCE THE MAP LOADS
-    $("#testButton").on("click", function() {
+    $("#calcButton").on("click", function() {
       let routeOrigin = directions.getOrigin();
       let routeDestination = directions.getDestination();
       originLon = routeOrigin.geometry.coordinates[0];
       originLat = routeOrigin.geometry.coordinates[1];
-      destinationLat = routeDestination.geometry.coordinates[1];
       destinationLon = routeDestination.geometry.coordinates[0];
-      console.log(
-        "Origin Longitude is: " +
-          destinationLon +
-          " and Origin Latitude is: " +
-          destinationLat
-      );
+      destinationLat = routeDestination.geometry.coordinates[1];
+
       // getMPG();
       getDistance();
       getWalkingDistance();
@@ -174,7 +169,6 @@ $(document).ready(function() {
         data: {}
       }
     }).then(function(response) {
-      console.log(response);
       gasPrice = response.result.state.gasoline;
     });
   }
@@ -234,7 +228,7 @@ $(document).ready(function() {
   });
 
   // FUNCTION TO SHOW MPG COST ONCE COMMUTE IS CLICKED
-  $("#switchExample").on("click", function(e) {
+  $("#switchExample").on("click", function() {
     if ($("#switchExample").is(":checked")) {
       $(".boxChecked").show();
     } else {

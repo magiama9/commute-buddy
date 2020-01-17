@@ -66,13 +66,14 @@
             <i class="fas fa-gas-pump"></i>
           </button>
           <div class="field is-horizontal">
-            <div class="field-label is-normal">
-              <label class="label">MPG:</label>
-            </div>
             <div class="field-body">
               <div class="field">
                 <p class="control"></p>
-                <input class="input" type="text" style="width: 100px" />
+                <input
+                  class="input"
+                  type="text"
+                  placeholder="Enter your car's MPG."
+                />
               </div>
             </div>
 
@@ -86,7 +87,7 @@
                 unchecked
               />
               <label class="level-item label" for="switchExample"
-                >Commute?</label
+                >Is this your commute?</label
               >
             </div>
           </div>
@@ -96,7 +97,6 @@
               id="commuterOptions"
               class="input"
               type="text"
-              style="width: 100px"
               placeholder="How many times a week?"
             />
           </div>
@@ -166,6 +166,9 @@
 
     <!-- JQuery JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <!-- Popper JS Library -->
+    <script src="https://unpkg.com/@popperjs/core@2.0.0-rc.2"></script>
 
     <!-- Custom JavaScript -->
     <script src="assets/scripts/script.js"></script>

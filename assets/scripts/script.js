@@ -322,4 +322,13 @@ $(document).ready(function() {
     runningCosts = parseFloat(routeDistanceMiles) * 0.58;
     console.log("running costs are " + runningCosts);
   }
+
+  // function addPoppers() {
+  //   import { createPopper } from "@popperjs/core";
+  //   const popcorn = document.querySelector("#popcorn");
+  //   const tooltip = document.querySelector("#tooltip");
+  //   createPopper(popcorn, tooltip, {
+  //     placement: "left-start"
+  //   });
+  // }
 });

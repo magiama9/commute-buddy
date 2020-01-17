@@ -1,9 +1,12 @@
 .is-header{
-  background-color:#FB3309;
+  background-color:#1f2126;
   color: white;
   font-family: 'Raleway', sans-serif;
-
 }
+span{
+  color: orangered;
+}
+
 .is-ancester {
   position: relative;
 }

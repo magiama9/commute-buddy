@@ -1,6 +1,8 @@
 /* STYLES HTML BACKGROUND DARK GREY */
+/* MAKES SURE SCROLL BAR DOESN'T APPEAR */
 html {
   background: #1f2126;
+  overflow: hidden;
 }
 
 /* STYLES HEADER/LOGO SECTION DARK GREY AND SET FONT CLASS */
@@ -9,7 +11,7 @@ html {
   color: white;
   font-family: "Raleway", sans-serif;
   font-size: 36px;
-  margin-bottom: -5px;
+  margin-bottom: -30px;
 }
 
 /* SET COLOR OF THE "buddy" IN THE LOGO AREA */
@@ -80,8 +82,19 @@ body {
   display: none;
 }
 
+/* POSITIONS THE QUESTION MARK */
+/* N.B. THE ELEMENT IN THE HTML IS <i> BUT IS REPLACED WITH <svg> ON PAGE LOAD */
 svg.fa-question-circle {
   position: absolute;
   top: 10px; 
   right: 100px;
+}
+
+/* COLORS FONT OF HEADERS INSIDE THE MODAL */
+.modal-content h2 {
+  color: orangered;
+}
+/* SETS WIDTH OF MODAL AREA */
+.modal-content {
+  width: 1200px;
 }

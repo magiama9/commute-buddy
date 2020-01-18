@@ -50,10 +50,17 @@ $(document).ready(function() {
   // HANDLES EVENTS FOR WHEN THE MAP FINISHES LOADING AND ADDS CONTROLS TO THE MAP USING MAPBOX DIRECTIONS GL PLUGIN
   map.on("load", function() {
     map.addControl(directions, "top-left");
-    $(".fa-question-circle").on("click"),
-      function() {
-        $(".modal]").addClass("is-active");
-      };
+
+    // EVENT HANDLERS FOR ABOUT MODAL
+    $(".fa-question-circle").on("click", function() {
+      $(".modal").addClass("is-active");
+    });
+    $(".modal-background").on("click", function() {
+      $(".modal").removeClass("is-active");
+    });
+    $(".modal-close").on("click", function() {
+      $(".modal").removeClass("is-active");
+    });
 
     // ADDS A CLICK HANDLER ON THE BUTTON ONCE THE MAP LOADS
     $("#calcButton").on("click", function() {

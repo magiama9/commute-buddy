@@ -1,5 +1,5 @@
-# group-project-01
-Repo for the first group project of GWU Bootcamp. Main project work completed in a team of four including Sam Randels, Khalil Hall, Aya Yoshida, and Ken Shiraishi.
+# COMMUTE\buddy\
+Main project work completed over the course of 5 working days in a team of four including Sam Randels, Khalil Hall, Aya Yoshida, and Ken Shiraishi.
 
 ## APPLICATION BASICS
 ![Demo Gif](https://github.com/magiama9/group-project-01/blob/master/assets/demo/project-demo-gif.gif)

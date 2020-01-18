@@ -39,7 +39,7 @@
       href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.0.2/mapbox-gl-directions.css"
       type="text/css"
     />
-    
+
     <link rel="stylesheet" href="assets/styles/styles.css" />
     <link
       href="https://fonts.googleapis.com/css?family=Raleway&display=swap"
@@ -62,6 +62,44 @@
       <div class="tile level-item is-parent is-vertical is-header">
         <div class="tile is-child has-text-centered">
           <h1>COMMUTE\<span>buddy</span>\</h1>
+        </div>
+        <!-- ABOUT/INFO ICON MODAL -->
+        <i class="far fa-question-circle"></i>
+        <div class="modal">
+          <div class="modal-background"></div>
+          <div class="modal-content">
+            <h3>ABOUT THIS TOOL</h3>
+            <p>
+              This is a navigation application that provides an interactive map
+              and turn-by-turn directions. You have the option of viewing
+              multiple different routes based on mode of transport and traffic.
+            </p>
+            <p>
+              Based on the route you select, the application calculates fuel
+              usage and thus fuel cost, allowing you to make informed financial
+              decisions regarding trips and commuting. If you would like to see
+              how costs will add up over time, simply toggle the commute slider.
+            </p>
+            <p>
+              You are also able to see the health benefits it you do choose to
+              take an alternate mode of transport such as walking or cycling.
+            </p>
+            <h4>
+              Data & Calculations
+            </h4>
+            <p>
+              For more information on the methodologies and data used, please
+              consult the README file hosted on our
+              <a src="https://github.com/magiama9/group-project-01">Github</a>
+            </p>
+            <p>
+              N.B. All calculations are estimates using the data and methodology
+              listed herein. Calculation results should not be considered
+              financial or health advice, and your individual results may vary
+              from what is shown.
+            </p>
+          </div>
+          <button class="modal-close is-large" aria-label="close"></button>
         </div>
       </div>
     </div>
@@ -94,9 +132,7 @@
                   class="level-item switch"
                   unchecked
                 />
-                <label class="label" for="switchExample"
-                  >Commute?</label
-                >
+                <label class="label" for="switchExample">Commute?</label>
               </div>
             </div>
 

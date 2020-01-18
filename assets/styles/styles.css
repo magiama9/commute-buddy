@@ -79,3 +79,9 @@ body {
 .tripDisplay {
   display: none;
 }
+
+svg.fa-question-circle {
+  position: absolute;
+  top: 10px; 
+  right: 100px;
+}

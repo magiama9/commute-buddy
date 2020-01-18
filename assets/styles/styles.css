@@ -98,3 +98,8 @@ svg.fa-question-circle {
 .modal-content {
   width: 1200px;
 }
+
+/* STYLE BACKGROUND OF COST CALCULATION BUTTON */
+#calcButton {
+  background: orangered;
+}

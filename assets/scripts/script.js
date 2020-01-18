@@ -348,4 +348,16 @@ $(document).ready(function() {
     walkingCal();
     cyclingCal();
   });
+
+  // TIPPY IMPLEMENTATIONS OF TOOLTIPS FOR THE INPUT FIELDS
+  tippy("#mpgInput", {
+    content:
+      "For more accurate breakdown of costs, enter your car's MPG. If you leave the field blank, it defaults to the national average of 25 MPG. \
+      When you're ready to see your results, hit 'Calculate Costs'. If you'd like to see your costs for more than a single trip, toggle this switch and watch the magic."
+  });
+
+  tippy("#commuterOptions", {
+    content: "Enter how many times a week you usually travel this route, or pick a number to estimate your costs."
+  })
+
 });

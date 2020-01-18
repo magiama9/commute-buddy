@@ -27,14 +27,30 @@ let walkPerWeek = 0;
 /********************* */
 
 $(document).ready(function() {
+
+  // URLS FOR THE THREE API CALLS MADE. ONE FOR DRIVING W/ TRAFFIC,
+  // ONE FOR WALKING, AND ONE FOR CYCLING.
   let directionsURL =
     "https://api.mapbox.com/directions/v5/mapbox/driving-traffic/";
   let walkingURL = "https://api.mapbox.com/directions/v5/mapbox/walking/";
   let cyclingURL = "https://api.mapbox.com/directions/v5/mapbox/cycling/";
+
+  // MAPBOX API KEY
   mapboxgl.accessToken =
     "pk.eyJ1IjoibWFnaWFtYTkiLCJhIjoiY2s1ZTQ5eTd0MDBmMjNsbm00dTQ4cWcydCJ9.Fsow7km2bw_bHw0r7jtPlw";
+
+  // LOADS MAPBOX DIRECTIONS AND CREATES A NEW DIRECTION OBJECT
   let directions = new MapboxDirections({
     accessToken: mapboxgl.accessToken
+  });
+
+  // LOADS GEOLOCATION CONTROL AND CREATES A GEOLOCATION OBJECT
+  // N.B. HIGH ACCURACY POSITIONING USUALLY TAKES 1-2 MINUTES, ESPECIALLY ON NON-MOBILE DEVICES
+  let geolocate = new mapboxgl.GeolocateControl({
+    positionOptions: {
+      enableHighAccuracy: true
+    },
+    trackUserLocation: true
   });
 
   // FUEL COST IS HARD CODED CURRENTLY FOR DEVELOPMENT. ACTIVATE FUEL API CALL FOR PRODUCTION
@@ -47,9 +63,11 @@ $(document).ready(function() {
     center: [-77.1, 38.9], // starting position [lng, lat]
     zoom: 13 // starting zoom
   });
+
   // HANDLES EVENTS FOR WHEN THE MAP FINISHES LOADING AND ADDS CONTROLS TO THE MAP USING MAPBOX DIRECTIONS GL PLUGIN
   map.on("load", function() {
-    map.addControl(directions, "top-left");
+    map.addControl(directions, "top-left"); // USER INPUT FIELDS & NAVIGATION
+    map.addControl(geolocate, "bottom-left"); // ADDS CONTROL FOR CURRENT USER LOCATION.
 
     // EVENT HANDLERS FOR ABOUT MODAL
     $(".fa-question-circle").on("click", function() {
@@ -357,7 +375,7 @@ $(document).ready(function() {
   });
 
   tippy("#commuterOptions", {
-    content: "Enter how many times a week you usually travel this route, or pick a number to estimate your costs."
-  })
-
+    content:
+      "Enter how many times a week you usually travel this route, or pick a number to estimate your costs."
+  });
 });

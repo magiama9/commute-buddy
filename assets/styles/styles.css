@@ -26,6 +26,9 @@ span {
   top: 8px;
   z-index: 5;
   background-color: rgba(255, 255, 255, 0.7);
+  padding: 5px;
+  max-height: 300px;
+  min-width: 400px;
 }
 
 /* STYLES AND POSITIONS CARD HOLDING THE CALORIE BURN INFORMATION */
@@ -35,6 +38,9 @@ span {
   background-color: rgba(255, 255, 255, 0.7);
   right: 8px;
   bottom: 8px;
+  padding: 5px;
+  max-height: 300px;
+  min-width: 400px;
 }
 
 /* STYLES THE MAP CONTAINING ELEMENT AND SETS IT AS THE POSITIONAL ANCHOR FOR ABSOLUTELY POSITIONED ELEMENTS */
@@ -86,7 +92,7 @@ body {
 /* N.B. THE ELEMENT IN THE HTML IS <i> BUT IS REPLACED WITH <svg> ON PAGE LOAD */
 svg.fa-question-circle {
   position: absolute;
-  top: 10px; 
+  top: 10px;
   right: 100px;
 }
 

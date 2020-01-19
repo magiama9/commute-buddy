@@ -109,3 +109,8 @@ svg.fa-question-circle {
 #calcButton {
   background: orangered;
 }
+
+/* PUSHES RADIO BUTTONS CLOSER TO LABELS IN CALORIE INFO BOX */
+.calbox div.field.level label{
+  margin-right: -30px;
+} 

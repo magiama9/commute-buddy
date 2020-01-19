@@ -115,7 +115,6 @@ $(document).ready(function() {
         access_token: mapboxgl.accessToken
       },
       success: function(response) {
-        console.log(response);
 
         // ROUTE DISTANCE IS RETURNED IN METERS
         routeDistance = response.routes[0].distance;
@@ -129,6 +128,8 @@ $(document).ready(function() {
       }
     });
   }
+
+  // WALKING DIRECTIONS API CALL
   function getWalkingDistance() {
     $.ajax({
       url:
@@ -157,6 +158,7 @@ $(document).ready(function() {
     });
   }
 
+  // CYCLING DIRECTIONS API CALL
   function getCyclingDistance() {
     $.ajax({
       url:
@@ -174,7 +176,6 @@ $(document).ready(function() {
         access_token: mapboxgl.accessToken
       },
       success: function(response) {
-        console.log(response);
 
         // ROUTE DISTANCE IS RETURNED IN METERS
         cyclingDistance = metersToMiles(response.routes[0].distance);
@@ -202,19 +203,12 @@ $(document).ready(function() {
       gasPrice = response.result.state.gasoline;
     });
   }
+
   // CONVERTS A VALUE IN METERS TO THE EQUIVALENT VALUE IN MILES WITH TWO DECIMAL POINTS
   // N.B. THE VALUE RETURNED IS A __STRING__
   function metersToMiles(num) {
     return (num / 1609.34).toFixed(2);
   }
-
-  // // IF THE USER HITS ENTER ON THE INPUT FIELD, IT GETS THE MPG AND CALCULATES COST
-  // $("#mpgInput").on("keydown", function(e) {
-  //   if (e.which === 13) {
-  //     getMPG();
-  //     getDistance();
-  //   }
-  // });
 
   // IF USER INPUTS AN MPG VALUE, USE THAT VALUE AS MPG
   // OTHERWISE MPG DEFAULTS TO 25 MPG(NATIONAL AVERAGE)
@@ -258,15 +252,6 @@ $(document).ready(function() {
     $("#runningCostYear").text("$" + runningCostYearly);
   }
 
-  // $("#commuterOptions").on("keydown", function(e) {
-  //   if (e.which === 13) {
-  //     c;
-  //     getMPG();
-  //     timesPerWeek();
-  //     getDistance();
-  //   }
-  // });
-
   // FUNCTION TO SHOW MPG COST ONCE COMMUTE IS CLICKED
   $("#switchExample").on("click", function() {
     if ($("#switchExample").is(":checked")) {
@@ -277,7 +262,6 @@ $(document).ready(function() {
   });
 
   // Handles fetching user input for how often they travel the route
-
   function timesPerWeek() {
     if ($("#commuterOptions").val()) {
       travelPerWeek = $("#commuterOptions").val();
@@ -349,17 +333,7 @@ $(document).ready(function() {
 
   function runningCostCalc() {
     runningCosts = parseFloat(routeDistanceMiles) * 0.58;
-    console.log("running costs are " + runningCosts);
   }
-
-  // function addPoppers() {
-  //   import { createPopper } from "@popperjs/core";
-  //   const popcorn = document.querySelector("#popcorn");
-  //   const tooltip = document.querySelector("#tooltip");
-  //   createPopper(popcorn, tooltip, {
-  //     placement: "left-start"
-  //   });
-  // }
 
   // EVENT HANDLER TO UPDATE INFORMATION IF THEY CHANGE THEIR SELECTED GENDER
   $("input[name=gender]:radio").on("click", function() {
@@ -367,13 +341,15 @@ $(document).ready(function() {
     cyclingCal();
   });
 
-  // TIPPY IMPLEMENTATIONS OF TOOLTIPS FOR THE INPUT FIELDS
+  // TIPPY TOOLTIP IMPLEMENTATIONS
+  // TOOLTIP FOR THE MPG INPUT
   tippy("#mpgInput", {
     content:
       "For more accurate breakdown of costs, enter your car's MPG. If you leave the field blank, it defaults to the national average of 25 MPG. \
       When you're ready to see your results, hit 'Calculate Costs'. If you'd like to see your costs for more than a single trip, toggle this switch and watch the magic."
   });
 
+  // TOOLTIP FOR THE COMMUTER OPTION
   tippy("#commuterOptions", {
     content:
       "Enter how many times a week you usually travel this route, or pick a number to estimate your costs."

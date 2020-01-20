@@ -111,6 +111,6 @@ svg.fa-question-circle {
 }
 
 /* PUSHES RADIO BUTTONS CLOSER TO LABELS IN CALORIE INFO BOX */
-.calbox div.field.level label{
-  margin-right: -30px;
+.calbox div.field.level p input{
+  margin-left: -30px;
 } 

@@ -54,7 +54,7 @@ $(document).ready(function() {
   });
 
   // FUEL COST IS HARD CODED CURRENTLY FOR DEVELOPMENT. ACTIVATE FUEL API CALL FOR PRODUCTION
-  // fuelAPICall();
+  fuelAPICall();
 
   // CREATES A NEW MAPBOX MAP OBJECT AND ADDS IT TO THE GIVEN CONTAINER
   let map = new mapboxgl.Map({

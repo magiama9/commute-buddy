@@ -325,12 +325,14 @@ $(document).ready(function() {
     return yearlyPounds;
   }
 
+  // CALCULATES COST OF A SINGULAR TRIP
   function fuelCalc() {
     totalDistance = parseFloat(routeDistanceMiles);
     routeCost = ((totalDistance / mpg) * gasPrice).toFixed(2);
     $("#costTrip").text("$" + routeCost);
   }
 
+  // IRS COST/MILE IS $0.58
   function runningCostCalc() {
     runningCosts = parseFloat(routeDistanceMiles) * 0.58;
   }

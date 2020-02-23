@@ -2,7 +2,7 @@
 Main project work completed over the course of 5 working days in a team of four including Sam Randels, Khalil Hall, Aya Yoshida, and Ken Shiraishi.
 
 ## APPLICATION BASICS
-![Demo Gif](https://github.com/magiama9/group-project-01/blob/master/assets/demo/project-demo-gif.gif)
+![Demo Gif](https://github.com/magiama9/commute-buddy/blob/master/assets/demo/project-demo-gif.gif)
 This is a navigation application that provides an interactive map and turn-by-turn directions. The user has the option of viewing multiple different routes based on mode of transport and traffic. Based on the route a user inputs, the application calculates fuel usage and thus fuel cost, allowing a user to make informed financial decisions regarding trips and commuting. The user is also able to see the health benefits it they do choose to take an alternate mode of transport such as walking or cycling.
 
 ### USER STORIES
